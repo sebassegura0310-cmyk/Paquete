@@ -1,0 +1,1193 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #F7F9FC;
+    color: #0B1F3A;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   ENCABEZADO
+========================================= */
+
+.header {
+    width: 100%;
+    min-height: 90px;
+
+    padding: 15px 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #FFFFFF;
+
+    border-bottom: 1px solid #E4E7EC;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    font-size: 24px;
+    font-weight: bold;
+
+    color: #0B1F3A;
+}
+
+.logo-icon {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    background: #155EEF;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+}
+
+.top-button {
+    border: none;
+
+    background: #155EEF;
+    color: white;
+
+    padding: 17px 27px;
+
+    border-radius: 10px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.top-button:hover {
+    background: #0D47C9;
+}
+
+
+/* =========================================
+   PANTALLAS
+========================================= */
+
+main {
+    width: 100%;
+}
+
+.pantalla {
+    display: none;
+
+    width: 100%;
+
+    min-height: calc(100vh - 90px);
+
+    padding: 70px 28px;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+}
+
+.pantalla.activa {
+    display: flex;
+}
+
+
+/* =========================================
+   INICIO
+========================================= */
+
+#paso-0 {
+    text-align: center;
+
+    display: none;
+
+    align-items: center;
+}
+
+#paso-0.activa {
+    display: flex;
+}
+
+
+/* =========================================
+   DISPONIBILIDAD
+========================================= */
+
+.disponible {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #D0D5DD;
+
+    padding: 13px 25px;
+
+    border-radius: 30px;
+
+    color: #667085;
+
+    font-size: 17px;
+
+    margin-bottom: 40px;
+
+    box-shadow: 0 2px 5px rgba(16, 24, 40, 0.04);
+}
+
+.disponible span {
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #12B76A;
+}
+
+
+/* =========================================
+   TÍTULO PRINCIPAL
+========================================= */
+
+h1 {
+    font-size: 58px;
+
+    line-height: 1.05;
+
+    margin: 0 auto 40px;
+
+    max-width: 700px;
+
+    color: #0B1F3A;
+}
+
+h1 strong {
+    display: block;
+
+    color: #155EEF;
+}
+
+.descripcion {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    color: #667085;
+
+    font-size: 23px;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================
+   SALARIO
+========================================= */
+
+.salario {
+    background: #FFFFFF;
+
+    border: 1px solid #E4E7EC;
+
+    border-radius: 18px;
+
+    width: 100%;
+    max-width: 620px;
+
+    margin: 55px auto 35px;
+
+    padding: 30px 20px;
+
+    box-shadow:
+        0 8px 20px rgba(16, 24, 40, 0.08);
+}
+
+.salario-titulo {
+    color: #667085;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+.salario-cantidad {
+    color: #155EEF;
+
+    font-size: 48px;
+
+    font-weight: bold;
+
+    margin: 10px 0;
+}
+
+.salario-sub {
+    color: #667085;
+
+    font-size: 18px;
+}
+
+
+/* =========================================
+   TEXTO POSTULAR
+========================================= */
+
+.texto-postular {
+    color: #667085;
+
+    font-size: 19px;
+
+    margin-bottom: 5px;
+}
+
+.flecha {
+    color: #155EEF;
+
+    font-size: 38px;
+
+    margin: 5px 0 15px;
+}
+
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.boton {
+    width: 100%;
+
+    min-height: 55px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 14px 20px;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: transform .15s, opacity .15s, background .2s;
+}
+
+.boton:hover {
+    opacity: .95;
+}
+
+.boton:active {
+    transform: scale(.98);
+}
+
+.boton span {
+    margin-left: 20px;
+}
+
+.naranja {
+    width: 240px;
+
+    background: #155EEF;
+
+    color: white;
+}
+
+.naranja:hover {
+    background: #0D47C9;
+}
+
+.verde {
+    background: #155EEF;
+
+    color: white;
+}
+
+.verde:hover {
+    background: #0D47C9;
+}
+
+
+/* =========================================
+   INFORMACIÓN DE LA OFERTA
+========================================= */
+
+.info-inicio {
+    width: 100%;
+    max-width: 850px;
+
+    margin: 55px auto 0;
+
+    text-align: left;
+}
+
+.info-inicio-titulo {
+    text-align: center;
+
+    font-size: 32px;
+
+    line-height: 1.2;
+
+    margin: 0 0 25px;
+
+    color: #0B1F3A;
+}
+
+.info-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+.info-card {
+    background: #FFFFFF;
+
+    border: 1px solid #E4E7EC;
+
+    border-radius: 15px;
+
+    padding: 22px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    box-shadow:
+        0 4px 12px rgba(16, 24, 40, 0.05);
+}
+
+.info-icon {
+    width: 48px;
+    height: 48px;
+
+    min-width: 48px;
+
+    border-radius: 12px;
+
+    background: #EAF2FF;
+
+    color: #155EEF;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 23px;
+}
+
+.info-card h3 {
+    margin: 2px 0 7px;
+
+    font-size: 17px;
+
+    color: #0B1F3A;
+}
+
+.info-card p {
+    margin: 0;
+
+    color: #667085;
+
+    font-size: 14px;
+
+    line-height: 1.45;
+}
+
+
+/* =========================================
+   CÓMO FUNCIONA
+========================================= */
+
+.como-funciona {
+    width: 100%;
+    max-width: 850px;
+
+    margin: 70px auto 0;
+
+    padding: 45px 30px;
+
+    background: #EAF2FF;
+
+    border-radius: 24px;
+
+    text-align: center;
+
+    border: 1px solid #D6E4FF;
+}
+
+.como-funciona h2 {
+    margin: 0 0 12px;
+
+    font-size: 34px;
+
+    color: #0B1F3A;
+}
+
+.como-funciona-intro {
+    max-width: 600px;
+
+    margin: 0 auto 35px;
+
+    color: #667085;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+}
+
+.pasos-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.paso-info {
+    position: relative;
+
+    text-align: center;
+}
+
+.paso-numero {
+    position: absolute;
+
+    top: -5px;
+    right: calc(50% - 35px);
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    background: #155EEF;
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 2;
+}
+
+.paso-icono {
+    width: 62px;
+    height: 62px;
+
+    margin: 0 auto 15px;
+
+    border-radius: 15px;
+
+    background: #FFFFFF;
+
+    color: #155EEF;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 27px;
+
+    border: 1px solid #D6E4FF;
+}
+
+.paso-info h3 {
+    font-size: 16px;
+
+    margin: 0 0 8px;
+
+    color: #0B1F3A;
+}
+
+.paso-info p {
+    color: #667085;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+
+    margin: 0;
+}
+
+
+/* =========================================
+   TARJETAS
+========================================= */
+
+.tarjeta {
+    width: 100%;
+
+    max-width: 620px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E4E7EC;
+
+    border-radius: 24px;
+
+    padding: 50px;
+
+    box-shadow:
+        0 12px 30px rgba(16, 24, 40, .08);
+}
+
+.tarjeta h2 {
+    text-align: center;
+
+    font-size: 34px;
+
+    margin: 0 0 20px;
+
+    color: #0B1F3A;
+}
+
+.subtitulo {
+    text-align: center;
+
+    color: #667085;
+
+    font-size: 20px;
+
+    line-height: 1.5;
+
+    margin-bottom: 40px;
+}
+
+
+/* =========================================
+   FORMULARIO
+========================================= */
+
+form label,
+.tarjeta > label,
+.bloque-gris label {
+    display: block;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    margin: 20px 0 8px;
+
+    color: #0B1F3A;
+}
+
+input,
+select {
+    width: 100%;
+
+    height: 55px;
+
+    border: 1px solid #D0D5DD;
+
+    border-radius: 10px;
+
+    background: #F9FAFB;
+
+    padding: 0 18px;
+
+    font-size: 18px;
+
+    color: #344054;
+
+    outline: none;
+
+    transition: .2s;
+}
+
+input:focus,
+select:focus {
+    border-color: #155EEF;
+
+    box-shadow:
+        0 0 0 3px #EAF2FF;
+}
+
+select {
+    cursor: pointer;
+}
+
+
+/* =========================================
+   PREGUNTAS
+========================================= */
+
+.pregunta {
+    text-align: center;
+}
+
+.icono {
+    width: 75px;
+    height: 75px;
+
+    margin: 0 auto 30px;
+
+    border-radius: 50%;
+
+    background: #EAF2FF;
+
+    color: #155EEF;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 32px;
+}
+
+.icono.grande {
+    font-size: 40px;
+}
+
+.pregunta > p {
+    color: #667085;
+
+    font-size: 22px;
+
+    line-height: 1.5;
+
+    margin: 25px 0 40px;
+}
+
+.opciones {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.opcion {
+    width: 100%;
+
+    min-height: 60px;
+
+    border-radius: 10px;
+
+    border: 2px solid #D6E4FF;
+
+    background: #FFFFFF;
+
+    color: #0B1F3A;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.opcion:hover {
+    border-color: #155EEF;
+
+    background: #F4F7FF;
+}
+
+
+/* =========================================
+   BLOQUE ENTREVISTA
+========================================= */
+
+.bloque-gris {
+    background: #F2F4F7;
+
+    border-radius: 17px;
+
+    padding: 25px;
+
+    margin: 25px 0;
+
+    border: 1px solid #E4E7EC;
+}
+
+.bloque-gris h3 {
+    margin-top: 0;
+
+    font-size: 19px;
+
+    line-height: 1.5;
+
+    color: #0B1F3A;
+}
+
+
+/* =========================================
+   FINAL
+========================================= */
+
+.final {
+    text-align: center;
+}
+
+.final p {
+    color: #667085;
+
+    font-size: 20px;
+
+    line-height: 1.5;
+
+    margin: 25px 0 35px;
+}
+
+.final-button {
+    background: #D92D20;
+
+    color: white;
+}
+
+.final-button:hover {
+    background: #B42318;
+}
+
+
+/* =========================================
+   PIE DE PÁGINA
+========================================= */
+
+footer {
+    background: #FFFFFF;
+
+    border-top: 1px solid #E4E7EC;
+
+    padding: 50px 25px;
+
+    text-align: center;
+}
+
+.footer-logo {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    font-size: 25px;
+
+    margin-bottom: 25px;
+
+    color: #0B1F3A;
+}
+
+.footer-logo .logo-icon {
+    width: 55px;
+    height: 55px;
+}
+
+footer p {
+    color: #667085;
+
+    font-size: 17px;
+
+    margin: 0;
+}
+
+
+/* =========================================
+   PASO 4 - CUENTA BANCARIA
+========================================= */
+
+.cuenta-bancaria {
+    text-align: center;
+}
+
+.pregunta-banco {
+    color: #667085;
+
+    font-size: 25px;
+
+    line-height: 1.5;
+
+    margin: 25px 0 40px;
+}
+
+.banco-opciones {
+    gap: 20px;
+}
+
+.banco-opciones .opcion {
+    min-height: 90px;
+
+    font-size: 26px;
+
+    font-weight: bold;
+
+    transition:
+        border-color .2s,
+        background .2s,
+        transform .15s;
+}
+
+.banco-opciones .opcion:hover {
+    border-color: #155EEF;
+
+    background: #F1F5FF;
+}
+
+.banco-opciones .opcion:active {
+    transform: scale(.98);
+}
+
+
+/* =========================================
+   CONTENIDO FINAL BANCO
+========================================= */
+
+.contenido-final-banco {
+    display: none;
+
+    margin-top: 40px;
+}
+
+.contenido-final-banco.visible {
+    display: block;
+}
+
+
+/* =========================================
+   MENSAJE DE AVISO
+========================================= */
+
+.contenido-final-banco .mensaje-banco {
+    display: block;
+
+    margin-top: 0;
+
+    padding: 25px 28px;
+
+    background: #FFF7D6;
+
+    border: 1px solid #F2D675;
+
+    border-radius: 16px;
+
+    text-align: left;
+
+    color: #7A4E00;
+
+    font-size: 19px;
+
+    line-height: 1.65;
+}
+
+.contenido-final-banco .mensaje-banco p {
+    margin: 0 0 22px;
+}
+
+.mensaje-banco p:last-of-type {
+    margin-bottom: 25px;
+}
+
+.mensaje-banco strong {
+    font-weight: bold;
+}
+
+
+/* =========================================
+   BOTÓN CONTINUAR
+========================================= */
+
+.contenido-final-banco .banco-continuar {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+
+    width: 100%;
+
+    margin-top: 25px;
+
+    background: #155EEF;
+
+    color: white;
+
+    text-decoration: none;
+
+    transition: .2s;
+}
+
+.contenido-final-banco .banco-continuar:hover {
+    background: #0D47C9;
+}
+
+
+/* =========================================
+   PASO FINAL
+========================================= */
+
+.contenido-final-banco .paso-final {
+    display: block;
+
+    margin-top: 35px;
+
+    padding: 25px 28px;
+
+    background: #EEF4FF;
+
+    border: 1px solid #C7D7FE;
+
+    border-radius: 16px;
+
+    text-align: left;
+
+    color: #0B1F3A;
+
+    font-size: 19px;
+
+    line-height: 1.65;
+}
+
+.contenido-final-banco .paso-final p {
+    margin: 0 0 20px;
+}
+
+
+/* =========================================
+   MÓVIL
+========================================= */
+
+@media (max-width: 600px) {
+
+    .header {
+        min-height: 82px;
+
+        padding: 13px 20px;
+    }
+
+    .logo-area {
+        font-size: 21px;
+
+        gap: 10px;
+    }
+
+    .logo-icon {
+        width: 48px;
+        height: 48px;
+
+        font-size: 21px;
+    }
+
+    .top-button {
+        padding: 14px 18px;
+
+        font-size: 16px;
+    }
+
+    .pantalla {
+        padding: 45px 18px;
+    }
+
+    h1 {
+        font-size: 43px;
+
+        margin-bottom: 28px;
+    }
+
+    .disponible {
+        font-size: 14px;
+
+        padding: 11px 18px;
+
+        margin-bottom: 28px;
+    }
+
+    .descripcion {
+        font-size: 18px;
+    }
+
+    .salario {
+        margin-top: 35px;
+
+        padding: 25px 15px;
+    }
+
+    .salario-cantidad {
+        font-size: 39px;
+    }
+
+    .salario-sub {
+        font-size: 15px;
+    }
+
+    .texto-postular {
+        font-size: 16px;
+    }
+
+    .naranja {
+        width: 100%;
+
+        max-width: 240px;
+    }
+
+
+    /* INFORMACIÓN */
+
+    .info-inicio {
+        margin-top: 45px;
+    }
+
+    .info-inicio-titulo {
+        font-size: 29px;
+
+        margin-bottom: 20px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .info-card {
+        padding: 18px;
+
+        border-radius: 13px;
+    }
+
+    .info-icon {
+        width: 45px;
+        height: 45px;
+
+        min-width: 45px;
+    }
+
+    .info-card h3 {
+        font-size: 15px;
+    }
+
+    .info-card p {
+        font-size: 13px;
+    }
+
+
+    /* CÓMO FUNCIONA */
+
+    .como-funciona {
+        margin-top: 50px;
+
+        padding: 35px 18px;
+
+        border-radius: 20px;
+    }
+
+    .como-funciona h2 {
+        font-size: 30px;
+    }
+
+    .como-funciona-intro {
+        font-size: 14px;
+
+        margin-bottom: 30px;
+    }
+
+    .pasos-grid {
+        grid-template-columns: 1fr;
+
+        gap: 28px;
+    }
+
+    .paso-info {
+        max-width: 260px;
+
+        margin: auto;
+    }
+
+
+    /* TARJETAS */
+
+    .tarjeta {
+        padding: 35px 28px;
+
+        border-radius: 22px;
+    }
+
+    .tarjeta h2 {
+        font-size: 29px;
+    }
+
+    .subtitulo {
+        font-size: 18px;
+    }
+
+    .pregunta > p {
+        font-size: 20px;
+    }
+
+
+    /* PASO 4 */
+
+    .pregunta-banco {
+        font-size: 23px;
+    }
+
+    .banco-opciones .opcion {
+        min-height: 85px;
+
+        font-size: 24px;
+    }
+
+    .contenido-final-banco .mensaje-banco {
+        padding: 22px;
+
+        font-size: 18px;
+
+        line-height: 1.6;
+    }
+
+    .contenido-final-banco .paso-final {
+        padding: 22px;
+
+        font-size: 18px;
+    }
+  }

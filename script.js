@@ -1,21 +1,46 @@
-// ==========================================
-// CAMBIAR DE PASO
-// ==========================================
+/* =========================================
+   CONFIGURACIÓN DEL ENLACE FINAL
+========================================= */
+
+/*
+   CAMBIA SOLAMENTE ESTA DIRECCIÓN.
+
+   Ejemplo:
+
+   const ENLACE_FINAL = "https://ejemplo.com";
+
+   El botón final abrirá esa dirección.
+*/
+
+const ENLACE_FINAL = "https://o.uvixs.com//tr?offer_id=1&aff_id=14";
+
+
+/* =========================================
+   CAMBIAR DE PASO
+========================================= */
 
 function irAPaso(numero) {
 
     // Ocultar todas las pantallas
-    document.querySelectorAll(".pantalla").forEach(function(pantalla) {
+    const pantallas = document.querySelectorAll(".pantalla");
+
+    pantallas.forEach(function(pantalla) {
         pantalla.classList.remove("activa");
     });
 
-    // Mostrar la pantalla seleccionada
-    const siguiente = document.getElementById("paso-" + numero);
 
-    if (siguiente) {
-        siguiente.classList.add("activa");
+    // Buscar la pantalla correspondiente
+    const destino = document.getElementById(
+        "paso-" + numero
+    );
 
-        // Subir al inicio de la página
+
+    // Mostrarla
+    if (destino) {
+
+        destino.classList.add("activa");
+
+        // Volver arriba
         window.scrollTo({
             top: 0,
             behavior: "smooth"
@@ -24,59 +49,72 @@ function irAPaso(numero) {
 }
 
 
-// ==========================================
-// VALIDACIÓN DE DATOS PERSONALES
-// ==========================================
+/* =========================================
+   FORMULARIO DE DEMOSTRACIÓN
+========================================= */
 
-document.getElementById("form-demo").addEventListener("submit", function(event) {
+const formulario = document.getElementById("form-demo");
 
-    // Evita que el formulario avance automáticamente
-    event.preventDefault();
+if (formulario) {
 
-    const nombre = document.getElementById("nombre");
-    const telefono = document.getElementById("telefono");
-    const ciudad = document.getElementById("ciudad");
+    formulario.addEventListener("submit", function(event) {
 
-    // Quitar espacios innecesarios
-    nombre.value = nombre.value.trim();
-    telefono.value = telefono.value.trim();
-    ciudad.value = ciudad.value.trim();
+        // Evita que el navegador envíe el formulario
+        event.preventDefault();
 
-    // Verificar nombre
-    if (nombre.value === "") {
-        alert("Por favor, escribe tu nombre completo.");
-        nombre.focus();
-        return;
-    }
+        // NO se envían los datos a ningún servidor.
+        // Solo avanzamos a la siguiente pantalla.
 
-    // Verificar teléfono
-    if (telefono.value === "") {
-        alert("Por favor, escribe tu teléfono o WhatsApp.");
-        telefono.focus();
-        return;
-    }
-
-    // Verificar ciudad
-    if (ciudad.value === "") {
-        alert("Por favor, escribe tu ciudad.");
-        ciudad.focus();
-        return;
-    }
-
-    // Si todos están llenos, avanzar
-    irAPaso(2);
-});
+        irAPaso(2);
+    });
+}
 
 
-// ==========================================
-// ENLACE FINAL
-// ==========================================
+/* =========================================
+   BOTÓN FINAL
+========================================= */
 
 function abrirEnlaceFinal() {
 
-    // Coloca aquí tu enlace final
-    window.location.href = "TU-ENLACE-AQUI";
+    if (
+        ENLACE_FINAL &&
+        ENLACE_FINAL !== "https://example.com"
+    ) {
+
+        window.location.href = ENLACE_FINAL;
+
+    } else {
+
+        alert(
+            "Configura primero ENLACE_FINAL en el archivo script.js."
+        );
+    }
 }
+
+
+/* =========================================
+   FECHA MÍNIMA
+========================================= */
+
+const fecha = document.getElementById("fecha");
+
+if (fecha) {
+
+    const hoy = new Date();
+
+    const año = hoy.getFullYear();
+
+    const mes = String(
+        hoy.getMonth() + 1
+    ).padStart(2, "0");
+
+    const dia = String(
+        hoy.getDate()
+    ).padStart(2, "0");
+
+    fecha.min = `${año}-${mes}-${dia}`;
+}
+
 // ==========================================
 // MOSTRAR MENSAJE DE CUENTA BANCARIA
 // ==========================================
@@ -97,6 +135,7 @@ function mostrarMensajeBanco() {
         }, 100);
     }
 }
+
 function mostrarMensajeBanco() {
 
     const contenido = document.getElementById("contenido-final-banco");

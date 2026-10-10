@@ -19,8 +19,8 @@ body {
         Helvetica,
         sans-serif;
 
-    background: #F7F9FC;
-    color: #0B1F3A;
+    background: #f5f3ec;
+    color: #29231f;
 
     min-height: 100vh;
 }
@@ -40,9 +40,9 @@ body {
     align-items: center;
     justify-content: space-between;
 
-    background: #FFFFFF;
+    background: #f8f7f1;
 
-    border-bottom: 1px solid #E4E7EC;
+    border-bottom: 1px solid #e2e1d9;
 
     position: sticky;
     top: 0;
@@ -56,9 +56,6 @@ body {
     gap: 14px;
 
     font-size: 24px;
-    font-weight: bold;
-
-    color: #0B1F3A;
 }
 
 .logo-icon {
@@ -67,7 +64,7 @@ body {
 
     border-radius: 50%;
 
-    background: #155EEF;
+    background: #1d6b2b;
     color: white;
 
     display: flex;
@@ -80,7 +77,7 @@ body {
 .top-button {
     border: none;
 
-    background: #155EEF;
+    background: #1d6b2b;
     color: white;
 
     padding: 17px 27px;
@@ -91,12 +88,6 @@ body {
     font-weight: bold;
 
     cursor: pointer;
-
-    transition: .2s;
-}
-
-.top-button:hover {
-    background: #0D47C9;
 }
 
 
@@ -156,21 +147,19 @@ main {
 
     gap: 10px;
 
-    background: #FFFFFF;
+    background: white;
 
-    border: 1px solid #D0D5DD;
+    border: 1px solid #d8ded9;
 
     padding: 13px 25px;
 
     border-radius: 30px;
 
-    color: #667085;
+    color: #66615d;
 
     font-size: 17px;
 
     margin-bottom: 40px;
-
-    box-shadow: 0 2px 5px rgba(16, 24, 40, 0.04);
 }
 
 .disponible span {
@@ -179,7 +168,7 @@ main {
 
     border-radius: 50%;
 
-    background: #12B76A;
+    background: #86b291;
 }
 
 
@@ -195,14 +184,12 @@ h1 {
     margin: 0 auto 40px;
 
     max-width: 700px;
-
-    color: #0B1F3A;
 }
 
 h1 strong {
     display: block;
 
-    color: #155EEF;
+    color: #1d6b2b;
 }
 
 .descripcion {
@@ -210,7 +197,7 @@ h1 strong {
 
     margin: 0 auto;
 
-    color: #667085;
+    color: #706963;
 
     font-size: 23px;
 
@@ -223,9 +210,9 @@ h1 strong {
 ========================================= */
 
 .salario {
-    background: #FFFFFF;
+    background: white;
 
-    border: 1px solid #E4E7EC;
+    border: 1px solid #deddd6;
 
     border-radius: 18px;
 
@@ -237,11 +224,11 @@ h1 strong {
     padding: 30px 20px;
 
     box-shadow:
-        0 8px 20px rgba(16, 24, 40, 0.08);
+        0 5px 12px rgba(0, 0, 0, 0.08);
 }
 
 .salario-titulo {
-    color: #667085;
+    color: #77716b;
 
     font-size: 17px;
 
@@ -251,7 +238,7 @@ h1 strong {
 }
 
 .salario-cantidad {
-    color: #155EEF;
+    color: #df5d18;
 
     font-size: 48px;
 
@@ -261,7 +248,7 @@ h1 strong {
 }
 
 .salario-sub {
-    color: #667085;
+    color: #77716b;
 
     font-size: 18px;
 }
@@ -272,7 +259,7 @@ h1 strong {
 ========================================= */
 
 .texto-postular {
-    color: #667085;
+    color: #716b65;
 
     font-size: 19px;
 
@@ -280,7 +267,7 @@ h1 strong {
 }
 
 .flecha {
-    color: #155EEF;
+    color: #df5d18;
 
     font-size: 38px;
 
@@ -309,11 +296,11 @@ h1 strong {
 
     cursor: pointer;
 
-    transition: transform .15s, opacity .15s, background .2s;
+    transition: transform .15s, opacity .15s;
 }
 
 .boton:hover {
-    opacity: .95;
+    opacity: .9;
 }
 
 .boton:active {
@@ -327,27 +314,20 @@ h1 strong {
 .naranja {
     width: 240px;
 
-    background: #155EEF;
+    background: #ed620f;
 
     color: white;
-}
-
-.naranja:hover {
-    background: #0D47C9;
 }
 
 .verde {
-    background: #155EEF;
+    background: #1d6b2b;
 
     color: white;
-}
-
-.verde:hover {
-    background: #0D47C9;
 }
 
 
 /* =========================================
+   NUEVA SECCIÓN:
    INFORMACIÓN DE LA OFERTA
 ========================================= */
 
@@ -368,8 +348,6 @@ h1 strong {
     line-height: 1.2;
 
     margin: 0 0 25px;
-
-    color: #0B1F3A;
 }
 
 .info-grid {
@@ -381,9 +359,9 @@ h1 strong {
 }
 
 .info-card {
-    background: #FFFFFF;
+    background: white;
 
-    border: 1px solid #E4E7EC;
+    border: 1px solid #deddd6;
 
     border-radius: 15px;
 
@@ -396,7 +374,7 @@ h1 strong {
     gap: 15px;
 
     box-shadow:
-        0 4px 12px rgba(16, 24, 40, 0.05);
+        0 4px 10px rgba(0, 0, 0, 0.04);
 }
 
 .info-icon {
@@ -407,9 +385,7 @@ h1 strong {
 
     border-radius: 12px;
 
-    background: #EAF2FF;
-
-    color: #155EEF;
+    background: #e9eee7;
 
     display: flex;
 
@@ -424,13 +400,13 @@ h1 strong {
 
     font-size: 17px;
 
-    color: #0B1F3A;
+    color: #29231f;
 }
 
 .info-card p {
     margin: 0;
 
-    color: #667085;
+    color: #77716b;
 
     font-size: 14px;
 
@@ -450,21 +426,17 @@ h1 strong {
 
     padding: 45px 30px;
 
-    background: #EAF2FF;
+    background: #e9ede1;
 
     border-radius: 24px;
 
     text-align: center;
-
-    border: 1px solid #D6E4FF;
 }
 
 .como-funciona h2 {
     margin: 0 0 12px;
 
     font-size: 34px;
-
-    color: #0B1F3A;
 }
 
 .como-funciona-intro {
@@ -472,7 +444,7 @@ h1 strong {
 
     margin: 0 auto 35px;
 
-    color: #667085;
+    color: #716b65;
 
     font-size: 16px;
 
@@ -504,7 +476,7 @@ h1 strong {
 
     border-radius: 50%;
 
-    background: #155EEF;
+    background: #e65c16;
 
     color: white;
 
@@ -527,29 +499,23 @@ h1 strong {
 
     border-radius: 15px;
 
-    background: #FFFFFF;
-
-    color: #155EEF;
+    background: #f5f3ec;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     font-size: 27px;
-
-    border: 1px solid #D6E4FF;
 }
 
 .paso-info h3 {
     font-size: 16px;
 
     margin: 0 0 8px;
-
-    color: #0B1F3A;
 }
 
 .paso-info p {
-    color: #667085;
+    color: #77716b;
 
     font-size: 13px;
 
@@ -568,16 +534,16 @@ h1 strong {
 
     max-width: 620px;
 
-    background: #FFFFFF;
+    background: white;
 
-    border: 1px solid #E4E7EC;
+    border: 1px solid #dcdcd5;
 
     border-radius: 24px;
 
     padding: 50px;
 
     box-shadow:
-        0 12px 30px rgba(16, 24, 40, .08);
+        0 12px 25px rgba(0, 0, 0, .09);
 }
 
 .tarjeta h2 {
@@ -586,14 +552,12 @@ h1 strong {
     font-size: 34px;
 
     margin: 0 0 20px;
-
-    color: #0B1F3A;
 }
 
 .subtitulo {
     text-align: center;
 
-    color: #667085;
+    color: #706963;
 
     font-size: 20px;
 
@@ -617,8 +581,6 @@ form label,
     font-weight: bold;
 
     margin: 20px 0 8px;
-
-    color: #0B1F3A;
 }
 
 input,
@@ -627,29 +589,25 @@ select {
 
     height: 55px;
 
-    border: 1px solid #D0D5DD;
+    border: none;
 
     border-radius: 10px;
 
-    background: #F9FAFB;
+    background: #f0eee9;
 
     padding: 0 18px;
 
     font-size: 18px;
 
-    color: #344054;
+    color: #403a35;
 
     outline: none;
-
-    transition: .2s;
 }
 
 input:focus,
 select:focus {
-    border-color: #155EEF;
-
     box-shadow:
-        0 0 0 3px #EAF2FF;
+        0 0 0 2px #1d6b2b;
 }
 
 select {
@@ -673,9 +631,9 @@ select {
 
     border-radius: 50%;
 
-    background: #EAF2FF;
+    background: #eaf1eb;
 
-    color: #155EEF;
+    color: #1d6b2b;
 
     display: flex;
     align-items: center;
@@ -689,7 +647,7 @@ select {
 }
 
 .pregunta > p {
-    color: #667085;
+    color: #706963;
 
     font-size: 22px;
 
@@ -713,23 +671,19 @@ select {
 
     border-radius: 10px;
 
-    border: 2px solid #D6E4FF;
+    border: 2px solid #d7e0d9;
 
-    background: #FFFFFF;
-
-    color: #0B1F3A;
+    background: white;
 
     font-size: 20px;
 
     cursor: pointer;
-
-    transition: .2s;
 }
 
 .opcion:hover {
-    border-color: #155EEF;
+    border-color: #1d6b2b;
 
-    background: #F4F7FF;
+    background: #f4f8f4;
 }
 
 
@@ -738,15 +692,13 @@ select {
 ========================================= */
 
 .bloque-gris {
-    background: #F2F4F7;
+    background: #f3f5f3;
 
     border-radius: 17px;
 
     padding: 25px;
 
     margin: 25px 0;
-
-    border: 1px solid #E4E7EC;
 }
 
 .bloque-gris h3 {
@@ -755,8 +707,6 @@ select {
     font-size: 19px;
 
     line-height: 1.5;
-
-    color: #0B1F3A;
 }
 
 
@@ -769,7 +719,7 @@ select {
 }
 
 .final p {
-    color: #667085;
+    color: #706963;
 
     font-size: 20px;
 
@@ -779,13 +729,9 @@ select {
 }
 
 .final-button {
-    background: #D92D20;
+    background: #e21a1a;
 
     color: white;
-}
-
-.final-button:hover {
-    background: #B42318;
 }
 
 
@@ -794,9 +740,9 @@ select {
 ========================================= */
 
 footer {
-    background: #FFFFFF;
+    background: white;
 
-    border-top: 1px solid #E4E7EC;
+    border-top: 1px solid #deddd6;
 
     padding: 50px 25px;
 
@@ -814,8 +760,6 @@ footer {
     font-size: 25px;
 
     margin-bottom: 25px;
-
-    color: #0B1F3A;
 }
 
 .footer-logo .logo-icon {
@@ -824,172 +768,11 @@ footer {
 }
 
 footer p {
-    color: #667085;
+    color: #716b65;
 
     font-size: 17px;
 
     margin: 0;
-}
-
-
-/* =========================================
-   PASO 4 - CUENTA BANCARIA
-========================================= */
-
-.cuenta-bancaria {
-    text-align: center;
-}
-
-.pregunta-banco {
-    color: #667085;
-
-    font-size: 25px;
-
-    line-height: 1.5;
-
-    margin: 25px 0 40px;
-}
-
-.banco-opciones {
-    gap: 20px;
-}
-
-.banco-opciones .opcion {
-    min-height: 90px;
-
-    font-size: 26px;
-
-    font-weight: bold;
-
-    transition:
-        border-color .2s,
-        background .2s,
-        transform .15s;
-}
-
-.banco-opciones .opcion:hover {
-    border-color: #155EEF;
-
-    background: #F1F5FF;
-}
-
-.banco-opciones .opcion:active {
-    transform: scale(.98);
-}
-
-
-/* =========================================
-   CONTENIDO FINAL BANCO
-========================================= */
-
-.contenido-final-banco {
-    display: none;
-
-    margin-top: 40px;
-}
-
-.contenido-final-banco.visible {
-    display: block;
-}
-
-
-/* =========================================
-   MENSAJE DE AVISO
-========================================= */
-
-.contenido-final-banco .mensaje-banco {
-    display: block;
-
-    margin-top: 0;
-
-    padding: 25px 28px;
-
-    background: #FFF7D6;
-
-    border: 1px solid #F2D675;
-
-    border-radius: 16px;
-
-    text-align: left;
-
-    color: #7A4E00;
-
-    font-size: 19px;
-
-    line-height: 1.65;
-}
-
-.contenido-final-banco .mensaje-banco p {
-    margin: 0 0 22px;
-}
-
-.mensaje-banco p:last-of-type {
-    margin-bottom: 25px;
-}
-
-.mensaje-banco strong {
-    font-weight: bold;
-}
-
-
-/* =========================================
-   BOTÓN CONTINUAR
-========================================= */
-
-.contenido-final-banco .banco-continuar {
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    gap: 15px;
-
-    width: 100%;
-
-    margin-top: 25px;
-
-    background: #155EEF;
-
-    color: white;
-
-    text-decoration: none;
-
-    transition: .2s;
-}
-
-.contenido-final-banco .banco-continuar:hover {
-    background: #0D47C9;
-}
-
-
-/* =========================================
-   PASO FINAL
-========================================= */
-
-.contenido-final-banco .paso-final {
-    display: block;
-
-    margin-top: 35px;
-
-    padding: 25px 28px;
-
-    background: #EEF4FF;
-
-    border: 1px solid #C7D7FE;
-
-    border-radius: 16px;
-
-    text-align: left;
-
-    color: #0B1F3A;
-
-    font-size: 19px;
-
-    line-height: 1.65;
-}
-
-.contenido-final-banco .paso-final p {
-    margin: 0 0 20px;
 }
 
 
@@ -1071,7 +854,7 @@ footer p {
     }
 
 
-    /* INFORMACIÓN */
+    /* TARJETAS DE INFORMACIÓN */
 
     .info-inicio {
         margin-top: 45px;
@@ -1163,9 +946,108 @@ footer p {
     .pregunta > p {
         font-size: 20px;
     }
+}
+
+/* =========================================
+   PASO 4 - CUENTA BANCARIA
+========================================= */
+
+.cuenta-bancaria {
+    text-align: center;
+}
+
+.pregunta-banco {
+    color: #706963;
+
+    font-size: 25px;
+
+    line-height: 1.5;
+
+    margin: 25px 0 40px;
+}
+
+.banco-opciones {
+    gap: 20px;
+}
+
+.banco-opciones .opcion {
+    min-height: 90px;
+
+    font-size: 26px;
+
+    font-weight: bold;
+
+    transition:
+        border-color .2s,
+        background .2s,
+        transform .15s;
+}
+
+.banco-opciones .opcion:hover {
+    border-color: #1d6b2b;
+
+    background: #f1f6f1;
+}
+
+.banco-opciones .opcion:active {
+    transform: scale(.98);
+}
 
 
-    /* PASO 4 */
+/* =========================================
+   MENSAJE AMARILLO
+========================================= */
+
+
+
+    margin-top: 40px;
+
+    padding: 25px 28px;
+
+    background: #fffbea;
+
+    border: 1px solid #f0df8b;
+
+    border-radius: 16px;
+
+    text-align: left;
+
+    color: #70431d;
+
+    font-size: 19px;
+
+    line-height: 1.65;
+}
+
+
+}
+
+.mensaje-banco p {
+    margin: 0 0 22px;
+}
+
+.mensaje-banco p:last-of-type {
+    margin-bottom: 25px;
+}
+
+.mensaje-banco strong {
+    font-weight: bold;
+}
+
+.banco-continuar {
+    background: #e21a1a;
+
+    color: white;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================
+   MÓVIL - PASO 4
+========================================= */
+
+@media (max-width: 600px) {
 
     .pregunta-banco {
         font-size: 23px;
@@ -1177,17 +1059,126 @@ footer p {
         font-size: 24px;
     }
 
-    .contenido-final-banco .mensaje-banco {
+    .mensaje-banco {
         padding: 22px;
 
         font-size: 18px;
 
         line-height: 1.6;
     }
+}
 
-    .contenido-final-banco .paso-final {
-        padding: 22px;
+.contenido-final-banco {
+    display: none;
+    margin-top: 35px;
+}
 
-        font-size: 18px;
-    }
-  }
+.contenido-final-banco.visible {
+    display: block;
+}
+
+.mensaje-banco {
+    padding: 25px 28px;
+    background: #fffbea;
+    border: 1px solid #f0df8b;
+    border-radius: 16px;
+    color: #70431d;
+    font-size: 19px;
+    line-height: 1.65;
+}
+
+.mensaje-banco p {
+    margin: 0 0 22px;
+}
+
+.banco-continuar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: 25px;
+    background: #e21a1a;
+    color: white;
+    text-decoration: none;
+}
+
+.paso-final {
+    margin-top: 35px;
+    padding: 25px 28px;
+    background: #f4f7f4;
+    border: 1px solid #ccd8cd;
+    border-radius: 16px;
+    color: #29231f;
+    font-size: 19px;
+    line-height: 1.65;
+}
+
+.paso-final p {
+    margin: 0 0 20px;
+}
+
+/* =========================================
+   CONTENIDO DEL PASO 4
+========================================= */
+
+.contenido-final-banco {
+    display: none;
+    margin-top: 40px;
+}
+
+.contenido-final-banco.visible {
+    display: block;
+}
+
+/* El recuadro amarillo SÍ debe mostrarse
+   cuando aparece el contenido */
+.contenido-final-banco .mensaje-banco {
+    display: block;
+    margin-top: 0;
+    padding: 25px 28px;
+    background: #fffbea;
+    border: 1px solid #f0df8b;
+    border-radius: 16px;
+    text-align: left;
+    color: #70431d;
+    font-size: 19px;
+    line-height: 1.65;
+}
+
+.contenido-final-banco .mensaje-banco p {
+    margin: 0 0 22px;
+}
+
+/* BOTÓN ROJO */
+
+.contenido-final-banco .banco-continuar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: 25px;
+    background: #e21a1a;
+    color: white;
+    text-decoration: none;
+}
+
+/* PASO FINAL */
+
+.contenido-final-banco .paso-final {
+    display: block;
+    margin-top: 35px;
+    padding: 25px 28px;
+    background: #f4f7f4;
+    border: 1px solid #ccd8cd;
+    border-radius: 16px;
+    text-align: left;
+    color: #29231f;
+    font-size: 19px;
+    line-height: 1.65;
+}
+
+.contenido-final-banco .paso-final p {
+    margin: 0 0 20px;
+}

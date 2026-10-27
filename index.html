@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1685f5">
 
-    <title>BodegaDemo</title>
+    <title>SurtidoraMX | Postulación</title>
 
-    <!-- IMPORTANTE: el archivo se llama exactamente style.css -->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,14 +14,20 @@
 
     <!-- ENCABEZADO -->
     <header class="header">
-        <div class="logo-area">
-            <div class="logo-icon">▣</div>
-            <strong>BodegaMX</strong>
-        </div>
 
-        <button class="top-button" onclick="irAPaso(1)">
+        <a class="logo-area" href="#inicio" aria-label="SurtidoraMX, inicio">
+            <span class="logo-icon" aria-hidden="true">⬡</span>
+            <strong>SurtidoraMX</strong>
+        </a>
+
+        <button
+            class="top-button"
+            type="button"
+            onclick="irAPaso(1)"
+        >
             Postularme
         </button>
+
     </header>
 
 
@@ -30,148 +36,191 @@
         <!-- =========================
              PASO 0 - INICIO
         ========================== -->
+
         <section id="paso-0" class="pantalla activa">
 
-            <div class="disponible">
-                <span></span>
-                Vacantes disponibles
+            <div class="hero-layout">
+
+                <div class="hero-copy">
+
+                    <div class="disponible">
+                        <span></span>
+                        Vacantes disponibles
+                    </div>
+
+                    <h1>
+                        Bienvenido a
+                        <strong>SurtidoraMX</strong>
+                    </h1>
+
+                    <p class="descripcion">
+                        Genera ingresos desde la comodidad de tu hogar
+                        organizando y preparando productos para diferentes
+                        actividades.
+                    </p>
+
+                    <div class="salario">
+
+                        <div class="salario-titulo">
+                            SALARIO SEMANAL
+                        </div>
+
+                        <div class="salario-cantidad">
+                            $4,000 pesos
+                        </div>
+
+                        <div class="salario-sub">
+                            Pagos puntuales cada semana
+                        </div>
+
+                    </div>
+
+                    <p class="texto-postular">
+                        Si quieres continuar presiona aquí
+                    </p>
+
+                    <div class="flecha" aria-hidden="true">
+                        ↓
+                    </div>
+
+                    <button
+                        class="boton naranja"
+                        type="button"
+                        onclick="irAPaso(1)"
+                    >
+                        Postularme
+                    </button>
+
+                </div>
+
+
+                <!-- FOTOGRAFÍA PRINCIPAL -->
+
+                <div class="imagen-trabajo">
+
+                    <img
+                        src="imagen-trabajo.jpg"
+                        alt="Persona preparando un paquete para enviar"
+                    >
+
+                    <div class="texto-imagen">
+                        Empaca desde casa, a tu ritmo
+                    </div>
+
+                </div>
+
             </div>
-
-            <h1>
-                Bienvenido a
-                <strong>BodegaMX</strong>
-            </h1>
-
-            <p class="descripcion">
-                Genera ingresos desde la comodidad de tu hogar
-                organizando y preparando productos para diferentes
-                actividades.
-            </p>
-
-            <div class="salario">
-                <div class="salario-titulo">
-                    SALARIO SEMANAL
-                </div>
-
-                <div class="salario-cantidad">
-                    $4,000 pesos
-                </div>
-
-                <div class="salario-sub">
-                    Pagos puntuales cada semana
-                </div>
-            </div>
-
-            <p class="texto-postular">
-                Si quieres continuar presiona aquí
-            </p>
-
-            <div class="flecha">↓</div>
-
-            <button class="boton naranja" onclick="irAPaso(1)">
-                Postularme
-            </button>
 
         </section>
 
 
         <!-- =========================
-     PASO 1 - DATOS DEMO
-========================== -->
-<section id="paso-1" class="pantalla">
+             PASO 1 - DATOS
+        ========================== -->
 
-    <div class="tarjeta">
+        <section id="paso-1" class="pantalla">
 
-        <h2>¡Continúa ahora!</h2>
+            <div class="tarjeta">
 
-        <p class="subtitulo">
-            Completa estos datos necesarios
-        </p>
+                <div class="numero-paso">1</div>
 
-        <form id="form-demo">
+                <h2>¡Continúa ahora!</h2>
 
-            <label>
-                Nombre completo
-            </label>
+                <p class="subtitulo">
+                    Completa estos datos necesarios
+                </p>
 
-            <input
-                type="text"
-                id="nombre"
-                placeholder="Ej: María García"
-                autocomplete="off"
-                required
-            >
+                <form id="form-demo">
 
-            <label>
-                Teléfono o WhatsApp
-            </label>
+                    <label for="nombre">
+                        Nombre completo
+                    </label>
 
-            <input
-                type="tel"
-                id="telefono"
-                placeholder="Ej: 555 123 4567"
-                autocomplete="off"
-                required
-            >
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        placeholder="Ej: María García"
+                        autocomplete="name"
+                        required
+                    >
 
-            <label>
-                Ciudad
-            </label>
+                    <label for="telefono">
+                        Teléfono o WhatsApp
+                    </label>
 
-            <input
-                type="text"
-                id="ciudad"
-                placeholder="Ej: Ciudad de México"
-                autocomplete="off"
-                required
-            >
+                    <input
+                        type="tel"
+                        id="telefono"
+                        name="telefono"
+                        placeholder="Ej: 555 123 4567"
+                        autocomplete="tel"
+                        required
+                    >
 
-            <button
-                type="submit"
-                class="boton verde"
-            >
-                Continuar
-                <span>→</span>
-            </button>
+                    <label for="ciudad">
+                        Ciudad
+                    </label>
 
-        </form>
+                    <input
+                        type="text"
+                        id="ciudad"
+                        name="ciudad"
+                        placeholder="Ej: Ciudad de México"
+                        autocomplete="address-level2"
+                        required
+                    >
 
-    </div>
+                    <button
+                        type="submit"
+                        class="boton verde"
+                    >
+                        Continuar
+                        <span>→</span>
+                    </button>
 
-</section>
+                </form>
+
+            </div>
+
+        </section>
 
 
         <!-- =========================
              PASO 2 - PREGUNTA
         ========================== -->
+
         <section id="paso-2" class="pantalla">
 
             <div class="tarjeta pregunta">
 
-                <div class="icono">
+                <div class="icono" aria-hidden="true">
                     ☎
                 </div>
 
-                <h2>
-                    Una pregunta importante
-                </h2>
+                <div class="numero-paso">2</div>
+
+                <h2>Una pregunta importante</h2>
 
                 <p>
-                    ¿Te podemos llamar para la entrevista cuando estés disponible?
+                    ¿Te podemos llamar para la entrevista
+                    cuando estés disponible?
                 </p>
 
                 <div class="opciones">
 
                     <button
                         class="opcion"
-                        onclick="irAPaso(3)"
+                        type="button"
+                        onclick="guardarRespuestaLlamada('No'); irAPaso(3)"
                     >
                         No
                     </button>
 
                     <button
                         class="opcion"
-                        onclick="irAPaso(3)"
+                        type="button"
+                        onclick="guardarRespuestaLlamada('Sí'); irAPaso(3)"
                     >
                         Sí
                     </button>
@@ -184,57 +233,66 @@
 
 
         <!-- =========================
-             PASO 3 - ENTREVISTA DEMO
+             PASO 3 - ENTREVISTA
         ========================== -->
+
         <section id="paso-3" class="pantalla">
 
             <div class="tarjeta">
 
-                <div class="icono">
+                <div class="icono" aria-hidden="true">
                     ▣
                 </div>
 
-                <h2>
-                    Entrevista de empleo 
-                </h2>
+                <div class="numero-paso">3</div>
+
+                <h2>Entrevista de empleo</h2>
 
                 <p class="subtitulo">
                     Selecciona una fecha y hora para continuar.
                 </p>
 
-                <div class="bloque-gris">
+                <form id="form-entrevista">
 
-                    <h3>
-                        ¿Qué día y hora estás disponible?
-                    </h3>
+                    <div class="bloque-gris">
 
-                    <label>
-                        Fecha
-                    </label>
+                        <h3>
+                            ¿Qué día y hora estás disponible?
+                        </h3>
 
-                    <input
-                        type="date"
-                        id="fecha"
+                        <label for="fecha">
+                            Fecha
+                        </label>
+
+                        <input
+                            type="date"
+                            id="fecha"
+                            name="fecha"
+                            required
+                        >
+
+                        <label for="hora">
+                            Hora
+                        </label>
+
+                        <input
+                            type="time"
+                            id="hora"
+                            name="hora"
+                            required
+                        >
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="boton verde"
                     >
+                        Enviar
+                        <span>→</span>
+                    </button>
 
-                    <label>
-                        Hora
-                    </label>
-
-                    <input
-                        type="time"
-                        id="hora"
-                    >
-
-                </div>
-
-                <button
-                    class="boton verde"
-                    onclick="irAPaso(4)"
-                >
-                    Enviar
-                    <span>→</span>
-                </button>
+                </form>
 
             </div>
 
@@ -242,130 +300,136 @@
 
 
         <!-- =========================
-     PASO 4 - CUENTA BANCARIA
-========================== -->
-<section id="paso-4" class="pantalla">
+             PASO 4 - ENCUESTA
+        ========================== -->
 
-    <div class="tarjeta cuenta-bancaria">
+        <section id="paso-4" class="pantalla">
 
-        <h2>
-            Encuesta para finalizar 
-        </h2>
+            <div class="tarjeta cuenta-bancaria">
 
-        <p class="pregunta-banco">
-            responde la siguiente encuesta en (Opiday) 
-        </p>
+                <div class="numero-paso">4</div>
 
-        <!-- BOTONES SÍ / NO -->
-        <div class="opciones banco-opciones">
+                <h2>Encuesta para finalizar</h2>
 
-            <button
-                type="button"
-                class="opcion"
-                onclick="mostrarMensajeBanco()"
-            >
-                No
-            </button>
-
-            <button
-                type="button"
-                class="opcion"
-                onclick="mostrarMensajeBanco()"
-            >
-                Sí
-            </button>
-
-        </div>
-
-
-        <!-- =================================
-             CONTENIDO OCULTO
-             APARECE AL PRESIONAR SÍ O NO
-        ================================== -->
-        <div
-            id="contenido-final-banco"
-            class="contenido-final-banco"
-        >
-
-            <!-- RECUADRO AMARILLO -->
-            <div class="mensaje-banco">
-
-                <p>
-                    <strong>Importante:</strong>
-                    Es necesario responder la siguiente encuesta en (Opiday) para finalizar la postulación no tardarás en realizarla.
+                <p class="pregunta-banco">
+                    Responde la siguiente encuesta en Opiday.
                 </p>
 
-                <p>
-                    llena las opciones disponibles que ahí encontrarás correctamente para finalizar ingresa con tu correo electrónico regístrate y llena la encuesta que te aparecera disponible.
-                </p>
 
-                <p>
-                    <strong>
-                        Solicíta la encuesta presionando aquí abajo:
-                    </strong>
-                </p>
+                <div class="opciones banco-opciones">
 
-                <!-- BOTÓN ROJO -->
-                <a
-                    class="boton banco-continuar"
-                    href="CÓDIGO DE OFERTA"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    <button
+                        type="button"
+                        class="opcion"
+                        onclick="mostrarMensajeBanco()"
+                    >
+                        No
+                    </button>
+
+                    <button
+                        type="button"
+                        class="opcion"
+                        onclick="mostrarMensajeBanco()"
+                    >
+                        Sí
+                    </button>
+
+                </div>
+
+
+                <!-- CONTENIDO OCULTO -->
+
+                <div
+                    id="contenido-final-banco"
+                    class="contenido-final-banco"
+                    hidden
                 >
-                    Encuesta aqui
-                    <span>→</span>
-                </a>
+
+                    <div class="mensaje-banco">
+
+                        <p>
+                            <strong>Importante:</strong>
+                            Es necesario responder la siguiente encuesta
+                            en Opiday para finalizar la postulación.
+                            El tiempo necesario puede variar.
+                        </p>
+
+                        <p>
+                            Revisa las opciones disponibles y sigue las
+                            instrucciones que aparezcan en la plataforma.
+                            No compartas contraseñas ni códigos
+                            de verificación.
+                        </p>
+
+                        <p>
+                            <strong>
+                                Solicita la encuesta presionando aquí abajo:
+                            </strong>
+                        </p>
+
+                        <!-- REEMPLAZA ESTE ENLACE POR EL DE TU OFERTA -->
+
+                        <a
+                            class="boton banco-continuar"
+                            href="CÓDIGO-DE-OFERTA"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Encuesta aquí
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+
+                    <div class="paso-final">
+
+                        <p>
+                            <strong>Paso final:</strong>
+                            Cuando termines el proceso, revisa las
+                            indicaciones que aparezcan en la plataforma.
+                        </p>
+
+                        <p>
+                            Verifica que la oferta y el sitio sean
+                            legítimos antes de enviar información personal.
+                        </p>
+
+                    </div>
+
+                </div>
 
             </div>
 
-
-            <!-- RECUADRO DE PASO FINAL -->
-            <div class="paso-final">
-
-                <p>
-                    <strong>Paso final:</strong>
-                    Cuando termines el proceso, podrás continuar
-                    con las indicaciones de tu postulación.
-                </p>
-
-                <p>
-                    Una vez finalizado, sigue las instrucciones
-                    proporcionadas por el proceso de selección.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-    
+        </section>
 
     </main>
 
 
     <!-- PIE DE PÁGINA -->
+
     <footer>
+
         <div class="footer-logo">
-            <div class="logo-icon">▣</div>
-            <strong>Bodegamx</strong>
+
+            <span class="logo-icon" aria-hidden="true">
+                ⬡
+            </span>
+
+            <strong>SurtidoraMX</strong>
+
         </div>
 
         <p>
-            © 2026 Bodegamx. Todos los derechos reservados.
+            © 2026 SurtidoraMX. Todos los derechos reservados.
         </p>
+
     </footer>
 
 
-    <!-- IMPORTANTE: el archivo se llama exactamente script.js -->
+    <!-- JAVASCRIPT -->
+
     <script src="script.js"></script>
 
 </body>
 </html>
-
-
-
-

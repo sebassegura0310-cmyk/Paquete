@@ -727,3 +727,137 @@ footer p {
         padding: 22px 18px;
     }
 }
+
+/* =========================
+   NUEVAS SECCIONES
+========================== */
+
+.seccion-info {
+    margin-top: 22px;
+    padding: 22px;
+    border-radius: 22px;
+    background: #f8fbff;
+    box-shadow: 0 12px 30px rgba(0, 48, 120, 0.12);
+}
+
+.encabezado-seccion {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.encabezado-seccion h2 {
+    margin: 5px 0 10px;
+    font-size: clamp(23px, 4vw, 32px);
+    color: #0b2048;
+}
+
+.encabezado-seccion p {
+    margin: 0 auto;
+    max-width: 520px;
+    color: #52647d;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.beneficios-grid,
+.pasos-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.info-card,
+.paso-card {
+    padding: 17px;
+    border-radius: 15px;
+    background: #f0f4f9;
+    border: 1px solid #e6edf7;
+}
+
+.info-icon {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    background: #dceaff;
+    color: #0755b2;
+    font-size: 23px;
+}
+
+.info-card h3,
+.paso-card h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    color: #0b2048;
+}
+
+.info-card p,
+.paso-card p {
+    margin: 0;
+    color: #52627a;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.paso-icon {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 12px;
+    border-radius: 13px;
+    background: #dceaff;
+    color: #0755b2;
+    font-size: 23px;
+}
+
+.paso-icon span {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    display: grid;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #f56b0a;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.seccion-info > .boton {
+    display: flex;
+    max-width: 360px;
+    margin: 18px auto 0;
+}
+
+/* Computadoras y tabletas */
+
+@media (min-width: 700px) {
+    .beneficios-grid,
+    .pasos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Teléfonos */
+
+@media (max-width: 699px) {
+    .seccion-info {
+        padding: 17px;
+        border-radius: 19px;
+    }
+
+    .encabezado-seccion h2 {
+        font-size: 24px;
+    }
+
+    .info-card,
+    .paso-card {
+        padding: 15px;
+    }
+}

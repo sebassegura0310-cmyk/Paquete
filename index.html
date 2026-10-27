@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -30,15 +31,15 @@
 
     </header>
 
-
     <main>
 
         <!-- =========================
-             PASO 0 - INICIO
+             INICIO Y SECCIONES INFORMATIVAS
         ========================== -->
 
         <section id="paso-0" class="pantalla activa">
 
+            <!-- PRESENTACIÓN ORIGINAL -->
             <div class="hero-layout">
 
                 <div class="hero-copy">
@@ -70,7 +71,7 @@
                         </div>
 
                         <div class="salario-sub">
-                            Pagos puntuales cada semana
+                            Consulta las condiciones de pago de la oferta.
                         </div>
 
                     </div>
@@ -79,9 +80,7 @@
                         Si quieres continuar presiona aquí
                     </p>
 
-                    <div class="flecha" aria-hidden="true">
-                        ↓
-                    </div>
+                    <div class="flecha" aria-hidden="true">↓</div>
 
                     <button
                         class="boton naranja"
@@ -93,9 +92,7 @@
 
                 </div>
 
-
                 <!-- FOTOGRAFÍA PRINCIPAL -->
-
                 <div class="imagen-trabajo">
 
                     <img
@@ -107,152 +104,174 @@
                         Empaca desde casa, a tu ritmo
                     </div>
 
+                    <div class="imagen-cta">
+                        <h2>¡Forma parte de SurtidoraMX!</h2>
+
+                        <button
+                            class="boton naranja"
+                            type="button"
+                            onclick="irAPaso(1)"
+                        >
+                            Postularme
+                        </button>
+                    </div>
+
                 </div>
 
             </div>
 
-        </section> 
 
-<!-- POR QUÉ UNIRTE A NOSOTROS -->
-<section class="seccion-info" id="beneficios">
-    <div class="encabezado-seccion">
-        <h2>¿Por qué unirte a nosotros?</h2>
-        <p>En SurtidoraMX te ofrecemos la oportunidad de conocer una opción de trabajo desde casa.</p>
-    </div>
+            <!-- =========================
+                 POR QUÉ UNIRTE A NOSOTROS
+            ========================== -->
 
-    <div class="beneficios-grid">
-        <article class="info-card">
-            <div class="info-icon">◷</div>
-            <h3>Horario Flexible</h3>
-            <p>Organiza tu tiempo de acuerdo con los horarios y las condiciones disponibles para la vacante.</p>
-        </article>
+            <section class="seccion-info" id="beneficios">
 
-        <article class="info-card">
-            <div class="info-icon">♧</div>
-            <h3>Trabajo Seguro</h3>
-            <p>Conoce la empresa, verifica la oferta y revisa las condiciones antes de aceptar el trabajo.</p>
-        </article>
+                <div class="encabezado-seccion">
+                    <h2>¿Por qué unirte a nosotros?</h2>
 
-        <article class="info-card">
-            <div class="info-icon">♙</div>
-            <h3>Sin Experiencia</h3>
-            <p>Consulta los requisitos de la vacante para saber si puedes postularte sin experiencia previa.</p>
-        </article>
+                    <p>
+                        En SurtidoraMX te invitamos a conocer
+                        esta oportunidad y sus condiciones.
+                    </p>
+                </div>
 
-        <article class="info-card">
-            <div class="info-icon">✣</div>
-            <h3>Variedad de Productos</h3>
-            <p>Conoce las actividades y los tipos de productos que se manejarían en el puesto.</p>
-        </article>
-    </div>
-</section>
+                <div class="beneficios-grid">
 
-<!-- CÓMO FUNCIONA -->
-<section class="seccion-info" id="como-funciona">
-    <div class="encabezado-seccion">
-        <h2>¿Cómo funciona?</h2>
-        <p>Comenzar es muy sencillo. Sigue estos pasos para conocer el proceso.</p>
-    </div>
+                    <article class="info-card">
+                        <div class="info-icon" aria-hidden="true">◷</div>
 
-    <div class="pasos-grid">
-        <article class="paso-card">
-            <div class="paso-icon">▤ <span>1</span></div>
-            <h3>Postúlate</h3>
-            <p>Llena el formulario con tus datos básicos para continuar con la postulación.</p>
-        </article>
+                        <h3>Horario Flexible</h3>
 
-        <article class="paso-card">
-            <div class="paso-icon">⬡ <span>2</span></div>
-            <h3>Recibe los productos</h3>
-            <p>Consulta las condiciones de entrega y los detalles de la actividad, si corresponde.</p>
-        </article>
+                        <p>
+                            Consulta los horarios disponibles y organiza
+                            tu tiempo de acuerdo con las condiciones
+                            de la vacante.
+                        </p>
+                    </article>
 
-        <article class="paso-card">
-            <div class="paso-icon">♧ <span>3</span></div>
-            <h3>Empaca y organiza</h3>
-            <p>Conoce las tareas, los materiales y las instrucciones antes de comenzar.</p>
-        </article>
+                    <article class="info-card">
+                        <div class="info-icon" aria-hidden="true">♧</div>
 
-        <article class="paso-card">
-            <div class="paso-icon">▣ <span>4</span></div>
-            <h3>Recibe tu pago</h3>
-            <p>Verifica las condiciones, la cantidad y las fechas de pago establecidas en la oferta.</p>
-        </article>
-    </div>
-</section>
+                        <h3>Trabajo Seguro</h3>
 
+                        <p>
+                            Revisa la información de la empresa y las
+                            condiciones del puesto antes de aceptar
+                            una oferta.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <div class="info-icon" aria-hidden="true">♙</div>
+
+                        <h3>Sin Experiencia</h3>
+
+                        <p>
+                            Consulta los requisitos para conocer si
+                            puedes postularte sin experiencia previa.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <div class="info-icon" aria-hidden="true">✣</div>
+
+                        <h3>Variedad de Productos</h3>
+
+                        <p>
+                            Conoce los productos, las actividades
+                            y las responsabilidades asociadas
+                            al puesto.
+                        </p>
+                    </article>
+
+                </div>
+
+            </section>
 
 
-<!-- =========================
-     CÓMO FUNCIONA
-========================== -->
+            <!-- =========================
+                 CÓMO FUNCIONA
+            ========================== -->
 
-<section class="seccion-info" id="como-funciona">
+            <section class="seccion-info" id="como-funciona">
 
-    <div class="encabezado-seccion">
-        <h2>¿Cómo funciona?</h2>
-        <p>
-            Sigue los pasos para conocer el proceso
-            de postulación.
-        </p>
-    </div>
+                <div class="encabezado-seccion">
+                    <h2>¿Cómo funciona?</h2>
 
-    <div class="pasos-grid">
+                    <p>
+                        Conoce los pasos del proceso de postulación
+                        y revisa las instrucciones de cada etapa.
+                    </p>
+                </div>
 
-        <article class="paso-card">
-            <div class="paso-icon">
-                ▤ <span>1</span>
-            </div>
-            <h3>Completa tus datos</h3>
-            <p>
-                Introduce la información básica
-                solicitada en el formulario.
-            </p>
-        </article>
+                <div class="pasos-grid">
 
-        <article class="paso-card">
-            <div class="paso-icon">
-                ⬡ <span>2</span>
-            </div>
-            <h3>Responde las preguntas</h3>
-            <p>
-                Contesta las preguntas y revisa
-                los siguientes pasos.
-            </p>
-        </article>
+                    <article class="paso-card">
+                        <div class="paso-icon" aria-hidden="true">
+                            ▤ <span>1</span>
+                        </div>
 
-        <article class="paso-card">
-            <div class="paso-icon">
-                ◷ <span>3</span>
-            </div>
-            <h3>Selecciona fecha y hora</h3>
-            <p>
-                Indica tu disponibilidad para
-                una posible entrevista.
-            </p>
-        </article>
+                        <h3>Postúlate</h3>
 
-        <article class="paso-card">
-            <div class="paso-icon">
-                ✓ <span>4</span>
-            </div>
-            <h3>Revisa las instrucciones</h3>
-            <p>
-                Lee las condiciones y verifica
-                los enlaces antes de continuar.
-            </p>
-        </article>
+                        <p>
+                            Llena el formulario con tus datos básicos
+                            para continuar con tu postulación.
+                        </p>
+                    </article>
 
-    </div>
+                    <article class="paso-card">
+                        <div class="paso-icon" aria-hidden="true">
+                            ⬡ <span>2</span>
+                        </div>
 
-    <button class="boton naranja"
-            type="button"
-            onclick="irAPaso(1)">
-        Comenzar postulación
-    </button>
+                        <h3>Recibe los productos</h3>
 
-</section>
+                        <p>
+                            Consulta las condiciones de entrega y
+                            los detalles de las actividades previstas.
+                        </p>
+                    </article>
 
+                    <article class="paso-card">
+                        <div class="paso-icon" aria-hidden="true">
+                            ♧ <span>3</span>
+                        </div>
+
+                        <h3>Empaca y organiza</h3>
+
+                        <p>
+                            Conoce las tareas, los materiales y las
+                            instrucciones correspondientes al puesto.
+                        </p>
+                    </article>
+
+                    <article class="paso-card">
+                        <div class="paso-icon" aria-hidden="true">
+                            ▣ <span>4</span>
+                        </div>
+
+                        <h3>Recibe tu pago</h3>
+
+                        <p>
+                            Verifica las condiciones y las fechas
+                            de pago indicadas en la oferta.
+                        </p>
+                    </article>
+
+                </div>
+
+                <button
+                    class="boton naranja"
+                    type="button"
+                    onclick="irAPaso(1)"
+                >
+                    Comenzar postulación
+                </button>
+
+            </section>
+
+        </section>
 
 
         <!-- =========================
@@ -273,9 +292,7 @@
 
                 <form id="form-demo">
 
-                    <label for="nombre">
-                        Nombre completo
-                    </label>
+                    <label for="nombre">Nombre completo</label>
 
                     <input
                         type="text"
@@ -286,9 +303,7 @@
                         required
                     >
 
-                    <label for="telefono">
-                        Teléfono o WhatsApp
-                    </label>
+                    <label for="telefono">Teléfono o WhatsApp</label>
 
                     <input
                         type="tel"
@@ -299,9 +314,7 @@
                         required
                     >
 
-                    <label for="ciudad">
-                        Ciudad
-                    </label>
+                    <label for="ciudad">Ciudad</label>
 
                     <input
                         type="text"
@@ -312,12 +325,8 @@
                         required
                     >
 
-                    <button
-                        type="submit"
-                        class="boton verde"
-                    >
-                        Continuar
-                        <span>→</span>
+                    <button type="submit" class="boton verde">
+                        Continuar <span>→</span>
                     </button>
 
                 </form>
@@ -335,9 +344,7 @@
 
             <div class="tarjeta pregunta">
 
-                <div class="icono" aria-hidden="true">
-                    ☎
-                </div>
+                <div class="icono" aria-hidden="true">☎</div>
 
                 <div class="numero-paso">2</div>
 
@@ -381,9 +388,7 @@
 
             <div class="tarjeta">
 
-                <div class="icono" aria-hidden="true">
-                    ▣
-                </div>
+                <div class="icono" aria-hidden="true">▣</div>
 
                 <div class="numero-paso">3</div>
 
@@ -397,13 +402,9 @@
 
                     <div class="bloque-gris">
 
-                        <h3>
-                            ¿Qué día y hora estás disponible?
-                        </h3>
+                        <h3>¿Qué día y hora estás disponible?</h3>
 
-                        <label for="fecha">
-                            Fecha
-                        </label>
+                        <label for="fecha">Fecha</label>
 
                         <input
                             type="date"
@@ -412,9 +413,7 @@
                             required
                         >
 
-                        <label for="hora">
-                            Hora
-                        </label>
+                        <label for="hora">Hora</label>
 
                         <input
                             type="time"
@@ -425,12 +424,8 @@
 
                     </div>
 
-                    <button
-                        type="submit"
-                        class="boton verde"
-                    >
-                        Enviar
-                        <span>→</span>
+                    <button type="submit" class="boton verde">
+                        Enviar <span>→</span>
                     </button>
 
                 </form>
@@ -456,7 +451,6 @@
                     Responde la siguiente encuesta en Opiday.
                 </p>
 
-
                 <div class="opciones banco-opciones">
 
                     <button
@@ -477,9 +471,6 @@
 
                 </div>
 
-
-                <!-- CONTENIDO OCULTO -->
-
                 <div
                     id="contenido-final-banco"
                     class="contenido-final-banco"
@@ -490,25 +481,23 @@
 
                         <p>
                             <strong>Importante:</strong>
-                            Es necesario responder la siguiente encuesta
-                            en Opiday para finalizar la postulación.
-                            El tiempo necesario puede variar.
+                            Revisa las instrucciones de la encuesta
+                            y las condiciones de la oferta antes
+                            de continuar.
                         </p>
 
                         <p>
-                            Revisa las opciones disponibles y sigue las
-                            instrucciones que aparezcan en la plataforma.
                             No compartas contraseñas ni códigos
                             de verificación.
                         </p>
 
                         <p>
                             <strong>
-                                Solicita la encuesta presionando aquí abajo:
+                                Consulta la encuesta en el siguiente enlace:
                             </strong>
                         </p>
 
-                        <!-- REEMPLAZA ESTE ENLACE POR EL DE TU OFERTA -->
+                        <!-- Sustituye por el enlace real de tu oferta -->
 
                         <a
                             class="boton banco-continuar"
@@ -516,19 +505,17 @@
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            Encuesta aquí
-                            <span>→</span>
+                            Encuesta aquí <span>→</span>
                         </a>
 
                     </div>
-
 
                     <div class="paso-final">
 
                         <p>
                             <strong>Paso final:</strong>
-                            Cuando termines el proceso, revisa las
-                            indicaciones que aparezcan en la plataforma.
+                            Cuando termines, revisa las instrucciones
+                            que aparezcan en la plataforma.
                         </p>
 
                         <p>
@@ -552,13 +539,8 @@
     <footer>
 
         <div class="footer-logo">
-
-            <span class="logo-icon" aria-hidden="true">
-                ⬡
-            </span>
-
+            <span class="logo-icon" aria-hidden="true">⬡</span>
             <strong>SurtidoraMX</strong>
-
         </div>
 
         <p>
@@ -566,9 +548,6 @@
         </p>
 
     </footer>
-
-
-    <!-- JAVASCRIPT -->
 
     <script src="script.js"></script>
 

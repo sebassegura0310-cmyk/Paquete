@@ -1003,3 +1003,36 @@ footer p {
         font-size: 23px;
     }
 }
+
+.carga-contenido {
+    text-align: center;
+    padding: 25px;
+}
+
+.carga-spinner {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 20px;
+    border: 5px solid #dce8f7;
+    border-top-color: #1685f5;
+    border-radius: 50%;
+    animation: giro-carga 0.8s linear infinite;
+}
+
+.carga-contenido h2 {
+    margin: 0 0 10px;
+    color: #16345b;
+    font-size: 23px;
+}
+
+.carga-contenido p {
+    margin: 0;
+    color: #64748b;
+    font-size: 15px;
+}
+
+@keyframes giro-carga {
+    to {
+        transform: rotate(360deg);
+    }
+}

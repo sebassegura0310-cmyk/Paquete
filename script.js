@@ -1,153 +1,155 @@
-/* =========================================
-   CONFIGURACIÓN DEL ENLACE FINAL
-========================================= */
-
-/*
-   CAMBIA SOLAMENTE ESTA DIRECCIÓN.
-
-   Ejemplo:
-
-   const ENLACE_FINAL = "https://ejemplo.com";
-
-   El botón final abrirá esa dirección.
-*/
-
-const ENLACE_FINAL = "https://o.uvixs.com//tr?offer_id=1&aff_id=14";
-
-
-/* =========================================
-   CAMBIAR DE PASO
-========================================= */
+/* =========================
+   CAMBIAR DE SECCIÓN
+========================= */
 
 function irAPaso(numero) {
 
-    // Ocultar todas las pantallas
     const pantallas = document.querySelectorAll(".pantalla");
 
-    pantallas.forEach(function(pantalla) {
+    pantallas.forEach((pantalla) => {
         pantalla.classList.remove("activa");
     });
 
+    const destino = document.getElementById(`paso-${numero}`);
 
-    // Buscar la pantalla correspondiente
-    const destino = document.getElementById(
-        "paso-" + numero
-    );
-
-
-    // Mostrarla
     if (destino) {
 
         destino.classList.add("activa");
 
-        // Volver arriba
         window.scrollTo({
             top: 0,
             behavior: "smooth"
         });
+
     }
 }
 
 
-/* =========================================
-   FORMULARIO DE DEMOSTRACIÓN
-========================================= */
-
-const formulario = document.getElementById("form-demo");
-
-if (formulario) {
-
-    formulario.addEventListener("submit", function(event) {
-
-        // Evita que el navegador envíe el formulario
-        event.preventDefault();
-
-        // NO se envían los datos a ningún servidor.
-        // Solo avanzamos a la siguiente pantalla.
-
-        irAPaso(2);
-    });
-}
-
-
-/* =========================================
-   BOTÓN FINAL
-========================================= */
-
-function abrirEnlaceFinal() {
-
-    if (
-        ENLACE_FINAL &&
-        ENLACE_FINAL !== "https://example.com"
-    ) {
-
-        window.location.href = ENLACE_FINAL;
-
-    } else {
-
-        alert(
-            "Configura primero ENLACE_FINAL en el archivo script.js."
-        );
-    }
-}
-
-
-/* =========================================
-   FECHA MÍNIMA
-========================================= */
-
-const fecha = document.getElementById("fecha");
-
-if (fecha) {
-
-    const hoy = new Date();
-
-    const año = hoy.getFullYear();
-
-    const mes = String(
-        hoy.getMonth() + 1
-    ).padStart(2, "0");
-
-    const dia = String(
-        hoy.getDate()
-    ).padStart(2, "0");
-
-    fecha.min = `${año}-${mes}-${dia}`;
-}
-
-// ==========================================
-// MOSTRAR MENSAJE DE CUENTA BANCARIA
-// ==========================================
+/* =========================
+   MOSTRAR ENCUESTA FINAL
+========================= */
 
 function mostrarMensajeBanco() {
 
-    const mensaje = document.getElementById("mensaje-banco");
-
-    if (mensaje) {
-        mensaje.classList.add("visible");
-
-        // Desplazarse suavemente hasta el mensaje
-        setTimeout(function() {
-            mensaje.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
-        }, 100);
-    }
-}
-
-function mostrarMensajeBanco() {
-
-    const contenido = document.getElementById("contenido-final-banco");
+    const contenido = document.getElementById(
+        "contenido-final-banco"
+    );
 
     if (contenido) {
-        contenido.classList.add("visible");
 
-        setTimeout(function() {
-            contenido.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-        }, 100);
+        contenido.hidden = false;
+
+        contenido.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest"
+        });
+
     }
+
 }
+
+
+/* =========================
+   GUARDAR RESPUESTA SÍ / NO
+========================= */
+
+function guardarRespuestaLlamada(respuesta) {
+
+    try {
+
+        sessionStorage.setItem(
+            "surtidoramx_disponible_llamada",
+            respuesta
+        );
+
+    } catch (e) {
+
+        // La navegación funciona aunque el navegador
+        // bloquee el almacenamiento de sesión.
+
+    }
+
+}
+
+
+/* =========================
+   INICIALIZACIÓN
+========================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* FECHA MÍNIMA: HOY */
+
+    const fecha = document.getElementById("fecha");
+
+    if (fecha) {
+
+        const hoy = new Date();
+
+        const localHoy = new Date(
+            hoy.getTime() - hoy.getTimezoneOffset() * 60000
+        ).toISOString().slice(0, 10);
+
+        fecha.min = localHoy;
+
+    }
+
+
+    /* =========================
+       FORMULARIO DE DATOS
+    ========================= */
+
+    const formularioDatos = document.getElementById("form-demo");
+
+    if (formularioDatos) {
+
+        formularioDatos.addEventListener("submit", (evento) => {
+
+            evento.preventDefault();
+
+            if (formularioDatos.reportValidity()) {
+
+                /*
+                 * Esta versión es una demostración.
+                 * Los datos no se envían a un servidor.
+                 */
+
+                irAPaso(2);
+
+            }
+
+        });
+
+    }
+
+
+    /* =========================
+       FORMULARIO DE ENTREVISTA
+    ========================= */
+
+    const formularioEntrevista = document.getElementById(
+        "form-entrevista"
+    );
+
+    if (formularioEntrevista) {
+
+        formularioEntrevista.addEventListener("submit", (evento) => {
+
+            evento.preventDefault();
+
+            if (formularioEntrevista.reportValidity()) {
+
+                /*
+                 * Esta versión es una demostración.
+                 * La fecha y la hora no se envían a un servidor.
+                 */
+
+                irAPaso(4);
+
+            }
+
+        });
+
+    }
+
+});

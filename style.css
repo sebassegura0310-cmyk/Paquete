@@ -1,9 +1,18 @@
-/* =========================================
+/* =========================
    CONFIGURACIÓN GENERAL
-========================================= */
+========================= */
 
 * {
     box-sizing: border-box;
+}
+
+:root {
+    --azul: #0879ee;
+    --azul-oscuro: #063b87;
+    --azul-claro: #e7f1ff;
+    --verde: #12ad62;
+    --naranja: #f56b0a;
+    --texto: #0b2048;
 }
 
 html {
@@ -12,1182 +21,709 @@ html {
 
 body {
     margin: 0;
-    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--texto);
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    background: linear-gradient(
+        135deg,
+        #1689f8 0%,
+        #3289ef 55%,
+        #1676e6 100%
+    );
+}
 
-    background: #F7F9FC;
-    color: #0B1F3A;
+button,
+input {
+    font: inherit;
+}
 
-    min-height: 100vh;
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
 }
 
 
-/* =========================================
+/* =========================
    ENCABEZADO
-========================================= */
+========================= */
 
 .header {
-    width: 100%;
-    min-height: 90px;
+    min-height: 82px;
 
-    padding: 15px 28px;
+    padding: 14px clamp(18px, 5vw, 54px);
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    background: #FFFFFF;
+    gap: 16px;
 
-    border-bottom: 1px solid #E4E7EC;
+    background: rgba(183, 222, 255, 0.88);
 
-    position: sticky;
-    top: 0;
-
-    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.45);
 }
 
-.logo-area {
+.logo-area,
+.footer-logo {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
 
-    font-size: 24px;
-    font-weight: bold;
+    color: var(--texto);
+    text-decoration: none;
 
-    color: #0B1F3A;
+    font-size: clamp(20px, 3vw, 30px);
 }
 
 .logo-icon {
-    width: 55px;
-    height: 55px;
+    display: inline-grid;
+    place-items: center;
+
+    width: 48px;
+    height: 48px;
 
     border-radius: 50%;
 
-    background: #155EEF;
+    background: var(--azul-oscuro);
     color: white;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 25px;
+    font-size: 30px;
+    line-height: 1;
 }
 
 .top-button {
-    border: none;
+    border: 0;
+    border-radius: 12px;
 
-    background: #155EEF;
+    padding: 15px 26px;
+
+    background: #064a9f;
     color: white;
 
-    padding: 17px 27px;
-
-    border-radius: 10px;
-
-    font-size: 18px;
-    font-weight: bold;
-
+    font-weight: 700;
     cursor: pointer;
-
-    transition: .2s;
-}
-
-.top-button:hover {
-    background: #0D47C9;
 }
 
 
-/* =========================================
-   PANTALLAS
-========================================= */
+/* =========================
+   CONTENIDO PRINCIPAL
+========================= */
 
 main {
-    width: 100%;
+    width: min(1120px, calc(100% - 32px));
+
+    margin: 22px auto 30px;
 }
 
 .pantalla {
     display: none;
-
-    width: 100%;
-
-    min-height: calc(100vh - 90px);
-
-    padding: 70px 28px;
-
-    align-items: center;
-    justify-content: center;
-
-    flex-direction: column;
+    margin: 18px 0;
 }
 
 .pantalla.activa {
-    display: flex;
+    display: block;
+    animation: aparecer 0.25s ease-out;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 
-/* =========================================
-   INICIO
-========================================= */
+/* =========================
+   SECCIÓN INICIAL
+========================= */
 
 #paso-0 {
-    text-align: center;
+    background: #f8fbff;
 
-    display: none;
+    border-radius: 28px;
+
+    padding: clamp(18px, 3vw, 28px);
+
+    box-shadow: 0 14px 35px rgba(0, 48, 120, 0.12);
+}
+
+.hero-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(280px, 0.92fr);
+
+    gap: 28px;
 
     align-items: center;
 }
 
-#paso-0.activa {
-    display: flex;
+.hero-copy {
+    min-width: 0;
 }
 
 
-/* =========================================
-   DISPONIBILIDAD
-========================================= */
+/* =========================
+   VACANTES DISPONIBLES
+========================= */
 
 .disponible {
     display: inline-flex;
 
     align-items: center;
+    gap: 8px;
 
-    gap: 10px;
+    background: #d6f6e8;
+    color: #087451;
 
-    background: #FFFFFF;
-
-    border: 1px solid #D0D5DD;
-
-    padding: 13px 25px;
+    padding: 8px 13px;
 
     border-radius: 30px;
 
-    color: #667085;
-
-    font-size: 17px;
-
-    margin-bottom: 40px;
-
-    box-shadow: 0 2px 5px rgba(16, 24, 40, 0.04);
+    font-weight: 700;
+    font-size: 14px;
 }
 
 .disponible span {
-    width: 10px;
-    height: 10px;
+    width: 11px;
+    height: 11px;
 
     border-radius: 50%;
 
-    background: #12B76A;
+    background: #13bd60;
 }
 
 
-/* =========================================
-   TÍTULO PRINCIPAL
-========================================= */
+/* =========================
+   TÍTULO Y DESCRIPCIÓN
+========================= */
 
 h1 {
-    font-size: 58px;
+    margin: 16px 0 10px;
 
-    line-height: 1.05;
+    font-size: clamp(32px, 4vw, 48px);
 
-    margin: 0 auto 40px;
-
-    max-width: 700px;
-
-    color: #0B1F3A;
+    line-height: 1.04;
+    letter-spacing: -1px;
 }
 
 h1 strong {
+    color: #0755b2;
     display: block;
-
-    color: #155EEF;
 }
 
 .descripcion {
-    max-width: 700px;
-
-    margin: 0 auto;
-
-    color: #667085;
-
-    font-size: 23px;
-
+    font-size: 17px;
     line-height: 1.55;
+
+    margin: 12px 0 18px;
 }
 
 
-/* =========================================
+/* =========================
    SALARIO
-========================================= */
+========================= */
 
 .salario {
-    background: #FFFFFF;
+    padding: 18px 20px;
 
-    border: 1px solid #E4E7EC;
+    border-radius: 15px;
 
-    border-radius: 18px;
-
-    width: 100%;
-    max-width: 620px;
-
-    margin: 55px auto 35px;
-
-    padding: 30px 20px;
-
-    box-shadow:
-        0 8px 20px rgba(16, 24, 40, 0.08);
+    background: #e5f0ff;
 }
 
 .salario-titulo {
-    color: #667085;
+    color: #0755b2;
 
-    font-size: 17px;
-
-    font-weight: bold;
-
-    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: 800;
 }
 
 .salario-cantidad {
-    color: #155EEF;
+    font-size: clamp(25px, 3vw, 34px);
 
-    font-size: 48px;
+    font-weight: 800;
 
-    font-weight: bold;
-
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
 .salario-sub {
-    color: #667085;
-
-    font-size: 18px;
+    font-size: 14px;
 }
 
-
-/* =========================================
-   TEXTO POSTULAR
-========================================= */
-
 .texto-postular {
-    color: #667085;
+    text-align: center;
 
-    font-size: 19px;
+    font-weight: 700;
+    color: #0755b2;
 
-    margin-bottom: 5px;
+    margin: 17px 0 4px;
 }
 
 .flecha {
-    color: #155EEF;
+    text-align: center;
 
-    font-size: 38px;
+    color: #0755b2;
 
-    margin: 5px 0 15px;
+    font-size: 30px;
+    font-weight: 800;
+
+    line-height: 1.1;
 }
 
 
-/* =========================================
+/* =========================
    BOTONES
-========================================= */
+========================= */
 
 .boton {
     width: 100%;
 
-    min-height: 55px;
+    display: inline-flex;
 
-    border: none;
+    justify-content: center;
+    align-items: center;
 
-    border-radius: 10px;
+    gap: 9px;
 
-    padding: 14px 20px;
+    border: 0;
+    border-radius: 12px;
 
-    font-size: 20px;
+    padding: 15px 18px;
 
-    font-weight: bold;
+    color: white;
+
+    font-size: 17px;
+    font-weight: 800;
+
+    text-align: center;
+    text-decoration: none;
 
     cursor: pointer;
 
-    transition: transform .15s, opacity .15s, background .2s;
+    margin-top: 14px;
+
+    transition:
+        transform 0.15s ease,
+        filter 0.15s ease;
 }
 
-.boton:hover {
-    opacity: .95;
+.boton:hover,
+.top-button:hover {
+    filter: brightness(1.04);
 }
 
-.boton:active {
-    transform: scale(.98);
-}
-
-.boton span {
-    margin-left: 20px;
+.boton:active,
+.top-button:active {
+    transform: scale(0.99);
 }
 
 .naranja {
-    width: 240px;
-
-    background: #155EEF;
-
-    color: white;
-}
-
-.naranja:hover {
-    background: #0D47C9;
+    background: var(--naranja);
 }
 
 .verde {
-    background: #155EEF;
-
-    color: white;
-}
-
-.verde:hover {
-    background: #0D47C9;
+    background: var(--verde);
 }
 
 
-/* =========================================
-   INFORMACIÓN DE LA OFERTA
-========================================= */
+/* =========================
+   FOTOGRAFÍA PRINCIPAL
+========================= */
 
-.info-inicio {
-    width: 100%;
-    max-width: 850px;
-
-    margin: 55px auto 0;
-
-    text-align: left;
-}
-
-.info-inicio-titulo {
-    text-align: center;
-
-    font-size: 32px;
-
-    line-height: 1.2;
-
-    margin: 0 0 25px;
-
-    color: #0B1F3A;
-}
-
-.info-grid {
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 15px;
-}
-
-.info-card {
-    background: #FFFFFF;
-
-    border: 1px solid #E4E7EC;
-
-    border-radius: 15px;
-
-    padding: 22px;
-
-    display: flex;
-
-    align-items: flex-start;
-
-    gap: 15px;
-
-    box-shadow:
-        0 4px 12px rgba(16, 24, 40, 0.05);
-}
-
-.info-icon {
-    width: 48px;
-    height: 48px;
-
-    min-width: 48px;
-
-    border-radius: 12px;
-
-    background: #EAF2FF;
-
-    color: #155EEF;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    font-size: 23px;
-}
-
-.info-card h3 {
-    margin: 2px 0 7px;
-
-    font-size: 17px;
-
-    color: #0B1F3A;
-}
-
-.info-card p {
-    margin: 0;
-
-    color: #667085;
-
-    font-size: 14px;
-
-    line-height: 1.45;
-}
-
-
-/* =========================================
-   CÓMO FUNCIONA
-========================================= */
-
-.como-funciona {
-    width: 100%;
-    max-width: 850px;
-
-    margin: 70px auto 0;
-
-    padding: 45px 30px;
-
-    background: #EAF2FF;
-
-    border-radius: 24px;
-
-    text-align: center;
-
-    border: 1px solid #D6E4FF;
-}
-
-.como-funciona h2 {
-    margin: 0 0 12px;
-
-    font-size: 34px;
-
-    color: #0B1F3A;
-}
-
-.como-funciona-intro {
-    max-width: 600px;
-
-    margin: 0 auto 35px;
-
-    color: #667085;
-
-    font-size: 16px;
-
-    line-height: 1.5;
-}
-
-.pasos-grid {
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 20px;
-}
-
-.paso-info {
+.imagen-trabajo {
     position: relative;
 
-    text-align: center;
+    overflow: hidden;
+
+    min-height: 280px;
+    height: 100%;
+
+    max-height: 500px;
+
+    border-radius: 22px;
+
+    background: #dce8f5;
 }
 
-.paso-numero {
+.imagen-trabajo img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 280px;
+    max-height: 500px;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+.texto-imagen {
     position: absolute;
 
-    top: -5px;
-    right: calc(50% - 35px);
+    bottom: 0;
+    left: 0;
 
-    width: 24px;
-    height: 24px;
+    width: 100%;
 
-    border-radius: 50%;
-
-    background: #155EEF;
+    padding: 45px 16px 18px;
 
     color: white;
 
-    font-size: 13px;
+    font-size: clamp(18px, 2.5vw, 25px);
+    font-weight: 800;
 
-    font-weight: bold;
+    text-align: center;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    z-index: 2;
-}
-
-.paso-icono {
-    width: 62px;
-    height: 62px;
-
-    margin: 0 auto 15px;
-
-    border-radius: 15px;
-
-    background: #FFFFFF;
-
-    color: #155EEF;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 27px;
-
-    border: 1px solid #D6E4FF;
-}
-
-.paso-info h3 {
-    font-size: 16px;
-
-    margin: 0 0 8px;
-
-    color: #0B1F3A;
-}
-
-.paso-info p {
-    color: #667085;
-
-    font-size: 13px;
-
-    line-height: 1.4;
-
-    margin: 0;
+    background: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, 0.68)
+    );
 }
 
 
-/* =========================================
+/* =========================
    TARJETAS
-========================================= */
+========================= */
 
 .tarjeta {
-    width: 100%;
+    position: relative;
 
-    max-width: 620px;
+    background: #fff;
 
-    background: #FFFFFF;
+    border-radius: 22px;
 
-    border: 1px solid #E4E7EC;
+    padding: clamp(22px, 4vw, 34px);
 
-    border-radius: 24px;
+    box-shadow: 0 12px 30px rgba(0, 48, 120, 0.12);
 
-    padding: 50px;
+    max-width: 650px;
 
-    box-shadow:
-        0 12px 30px rgba(16, 24, 40, .08);
+    margin: 0 auto;
 }
 
 .tarjeta h2 {
-    text-align: center;
-
-    font-size: 34px;
-
-    margin: 0 0 20px;
-
-    color: #0B1F3A;
+    font-size: clamp(23px, 3vw, 30px);
+    margin: 8px 0;
 }
 
 .subtitulo {
-    text-align: center;
+    color: #344968;
 
-    color: #667085;
-
-    font-size: 20px;
+    margin: 8px 0 22px;
 
     line-height: 1.5;
-
-    margin-bottom: 40px;
 }
 
 
-/* =========================================
-   FORMULARIO
-========================================= */
+/* =========================
+   FORMULARIOS
+========================= */
 
-form label,
-.tarjeta > label,
-.bloque-gris label {
+label {
     display: block;
 
-    font-size: 18px;
+    margin: 14px 0 7px;
 
-    font-weight: bold;
-
-    margin: 20px 0 8px;
-
-    color: #0B1F3A;
+    font-weight: 700;
+    font-size: 14px;
 }
 
-input,
-select {
+input {
+    display: block;
+
     width: 100%;
 
-    height: 55px;
+    border: 1px solid #b9d2f3;
+    border-radius: 9px;
 
-    border: 1px solid #D0D5DD;
+    padding: 13px 14px;
 
-    border-radius: 10px;
-
-    background: #F9FAFB;
-
-    padding: 0 18px;
-
-    font-size: 18px;
-
-    color: #344054;
+    background: #fff;
+    color: var(--texto);
 
     outline: none;
-
-    transition: .2s;
 }
 
-input:focus,
-select:focus {
-    border-color: #155EEF;
+input:focus {
+    border-color: #1478eb;
 
-    box-shadow:
-        0 0 0 3px #EAF2FF;
-}
-
-select {
-    cursor: pointer;
+    box-shadow: 0 0 0 3px rgba(20, 120, 235, 0.12);
 }
 
 
-/* =========================================
-   PREGUNTAS
-========================================= */
+/* =========================
+   NÚMEROS DE LOS PASOS
+========================= */
+
+.numero-paso {
+    display: inline-grid;
+
+    place-items: center;
+
+    width: 44px;
+    height: 44px;
+
+    border-radius: 50%;
+
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #4d9aff,
+        #0758d7
+    );
+
+    font-size: 25px;
+    font-weight: 800;
+
+    margin-right: 8px;
+}
+
+
+/* =========================
+   ICONOS
+========================= */
+
+.icono {
+    display: grid;
+
+    place-items: center;
+
+    margin: 0 auto 12px;
+
+    width: 58px;
+    height: 58px;
+
+    border-radius: 50%;
+
+    color: white;
+    background: #1768e7;
+
+    font-size: 28px;
+}
+
+
+/* =========================
+   PREGUNTAS SÍ / NO
+========================= */
 
 .pregunta {
     text-align: center;
 }
 
-.icono {
-    width: 75px;
-    height: 75px;
-
-    margin: 0 auto 30px;
-
-    border-radius: 50%;
-
-    background: #EAF2FF;
-
-    color: #155EEF;
-
+.pregunta .numero-paso {
     display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 32px;
+    margin: 12px auto;
 }
 
-.icono.grande {
-    font-size: 40px;
-}
-
-.pregunta > p {
-    color: #667085;
-
-    font-size: 22px;
-
-    line-height: 1.5;
-
-    margin: 25px 0 40px;
+.pregunta p {
+    line-height: 1.55;
 }
 
 .opciones {
     display: flex;
+    gap: 12px;
 
-    flex-direction: column;
-
-    gap: 15px;
+    margin-top: 22px;
 }
 
 .opcion {
-    width: 100%;
+    flex: 1;
 
-    min-height: 60px;
+    border: 0;
+    border-radius: 11px;
 
-    border-radius: 10px;
+    padding: 14px;
 
-    border: 2px solid #D6E4FF;
+    background: #e2efff;
+    color: #0750a9;
 
-    background: #FFFFFF;
-
-    color: #0B1F3A;
-
-    font-size: 20px;
+    font-weight: 800;
 
     cursor: pointer;
-
-    transition: .2s;
 }
 
-.opcion:hover {
-    border-color: #155EEF;
-
-    background: #F4F7FF;
+.opcion:last-child {
+    background: #1268d8;
+    color: #fff;
 }
 
 
-/* =========================================
-   BLOQUE ENTREVISTA
-========================================= */
+/* =========================
+   FECHA Y HORA
+========================= */
 
 .bloque-gris {
-    background: #F2F4F7;
+    background: #edf5ff;
 
-    border-radius: 17px;
+    border-radius: 15px;
 
-    padding: 25px;
+    padding: 18px;
 
-    margin: 25px 0;
-
-    border: 1px solid #E4E7EC;
+    margin-top: 18px;
 }
 
 .bloque-gris h3 {
-    margin-top: 0;
-
-    font-size: 19px;
-
-    line-height: 1.5;
-
-    color: #0B1F3A;
+    font-size: 16px;
+    margin: 0 0 14px;
 }
 
 
-/* =========================================
-   FINAL
-========================================= */
-
-.final {
-    text-align: center;
-}
-
-.final p {
-    color: #667085;
-
-    font-size: 20px;
-
-    line-height: 1.5;
-
-    margin: 25px 0 35px;
-}
-
-.final-button {
-    background: #D92D20;
-
-    color: white;
-}
-
-.final-button:hover {
-    background: #B42318;
-}
-
-
-/* =========================================
-   PIE DE PÁGINA
-========================================= */
-
-footer {
-    background: #FFFFFF;
-
-    border-top: 1px solid #E4E7EC;
-
-    padding: 50px 25px;
-
-    text-align: center;
-}
-
-.footer-logo {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 14px;
-
-    font-size: 25px;
-
-    margin-bottom: 25px;
-
-    color: #0B1F3A;
-}
-
-.footer-logo .logo-icon {
-    width: 55px;
-    height: 55px;
-}
-
-footer p {
-    color: #667085;
-
-    font-size: 17px;
-
-    margin: 0;
-}
-
-
-/* =========================================
-   PASO 4 - CUENTA BANCARIA
-========================================= */
+/* =========================
+   ENCUESTA FINAL
+========================= */
 
 .cuenta-bancaria {
-    text-align: center;
+    max-width: 720px;
 }
 
 .pregunta-banco {
-    color: #667085;
-
-    font-size: 25px;
-
     line-height: 1.5;
-
-    margin: 25px 0 40px;
 }
-
-.banco-opciones {
-    gap: 20px;
-}
-
-.banco-opciones .opcion {
-    min-height: 90px;
-
-    font-size: 26px;
-
-    font-weight: bold;
-
-    transition:
-        border-color .2s,
-        background .2s,
-        transform .15s;
-}
-
-.banco-opciones .opcion:hover {
-    border-color: #155EEF;
-
-    background: #F1F5FF;
-}
-
-.banco-opciones .opcion:active {
-    transform: scale(.98);
-}
-
-
-/* =========================================
-   CONTENIDO FINAL BANCO
-========================================= */
 
 .contenido-final-banco {
-    display: none;
-
-    margin-top: 40px;
+    margin-top: 22px;
 }
 
-.contenido-final-banco.visible {
-    display: block;
+.mensaje-banco,
+.paso-final {
+    padding: 18px;
+
+    border-radius: 14px;
+
+    margin-top: 14px;
+
+    line-height: 1.55;
 }
 
-
-/* =========================================
-   MENSAJE DE AVISO
-========================================= */
-
-.contenido-final-banco .mensaje-banco {
-    display: block;
-
-    margin-top: 0;
-
-    padding: 25px 28px;
-
-    background: #FFF7D6;
-
-    border: 1px solid #F2D675;
-
-    border-radius: 16px;
-
-    text-align: left;
-
-    color: #7A4E00;
-
-    font-size: 19px;
-
-    line-height: 1.65;
+.mensaje-banco {
+    background: #fff3bd;
 }
 
-.contenido-final-banco .mensaje-banco p {
-    margin: 0 0 22px;
+.paso-final {
+    background: #e4f0ff;
 }
 
-.mensaje-banco p:last-of-type {
-    margin-bottom: 25px;
+.banco-continuar {
+    background: #ed2939;
 }
 
-.mensaje-banco strong {
-    font-weight: bold;
+[hidden] {
+    display: none !important;
 }
 
 
-/* =========================================
-   BOTÓN CONTINUAR
-========================================= */
+/* =========================
+   PIE DE PÁGINA
+========================= */
 
-.contenido-final-banco .banco-continuar {
-    display: flex;
+footer {
+    text-align: center;
 
+    padding: 26px 16px 32px;
+
+    background: #082f68;
+
+    color: white;
+}
+
+.footer-logo {
     justify-content: center;
-    align-items: center;
-
-    gap: 15px;
-
-    width: 100%;
-
-    margin-top: 25px;
-
-    background: #155EEF;
 
     color: white;
 
-    text-decoration: none;
-
-    transition: .2s;
+    font-size: 23px;
 }
 
-.contenido-final-banco .banco-continuar:hover {
-    background: #0D47C9;
+.footer-logo .logo-icon {
+    width: 38px;
+    height: 38px;
+
+    background: transparent;
+
+    border: 2px solid white;
+
+    font-size: 24px;
 }
 
-
-/* =========================================
-   PASO FINAL
-========================================= */
-
-.contenido-final-banco .paso-final {
-    display: block;
-
-    margin-top: 35px;
-
-    padding: 25px 28px;
-
-    background: #EEF4FF;
-
-    border: 1px solid #C7D7FE;
-
-    border-radius: 16px;
-
-    text-align: left;
-
-    color: #0B1F3A;
-
-    font-size: 19px;
-
-    line-height: 1.65;
-}
-
-.contenido-final-banco .paso-final p {
-    margin: 0 0 20px;
+footer p {
+    font-size: 13px;
+    margin: 14px 0 0;
 }
 
 
-/* =========================================
-   MÓVIL
-========================================= */
+/* =========================
+   DISEÑO PARA MÓVILES
+========================= */
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
 
     .header {
-        min-height: 82px;
-
-        padding: 13px 20px;
+        min-height: 72px;
+        padding: 12px 16px;
     }
 
     .logo-area {
-        font-size: 21px;
-
-        gap: 10px;
+        font-size: 19px;
+        gap: 8px;
     }
 
     .logo-icon {
-        width: 48px;
-        height: 48px;
+        width: 40px;
+        height: 40px;
 
-        font-size: 21px;
+        font-size: 25px;
     }
 
     .top-button {
-        padding: 14px 18px;
-
-        font-size: 16px;
+        padding: 12px 15px;
+        font-size: 14px;
     }
 
-    .pantalla {
-        padding: 45px 18px;
+    main {
+        width: min(100% - 22px, 540px);
+
+        margin-top: 12px;
+    }
+
+    #paso-0 {
+        padding: 17px;
+    }
+
+    .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .imagen-trabajo {
+        order: -1;
+
+        height: 260px;
+        min-height: 0;
+    }
+
+    .imagen-trabajo img {
+        height: 260px;
+        min-height: 0;
     }
 
     h1 {
-        font-size: 43px;
-
-        margin-bottom: 28px;
-    }
-
-    .disponible {
-        font-size: 14px;
-
-        padding: 11px 18px;
-
-        margin-bottom: 28px;
+        margin-top: 14px;
     }
 
     .descripcion {
-        font-size: 18px;
-    }
-
-    .salario {
-        margin-top: 35px;
-
-        padding: 25px 15px;
-    }
-
-    .salario-cantidad {
-        font-size: 39px;
-    }
-
-    .salario-sub {
-        font-size: 15px;
-    }
-
-    .texto-postular {
         font-size: 16px;
     }
 
-    .naranja {
-        width: 100%;
-
-        max-width: 240px;
-    }
-
-
-    /* INFORMACIÓN */
-
-    .info-inicio {
-        margin-top: 45px;
-    }
-
-    .info-inicio-titulo {
-        font-size: 29px;
-
-        margin-bottom: 20px;
-    }
-
-    .info-grid {
-        grid-template-columns: 1fr;
-
-        gap: 12px;
-    }
-
-    .info-card {
-        padding: 18px;
-
-        border-radius: 13px;
-    }
-
-    .info-icon {
-        width: 45px;
-        height: 45px;
-
-        min-width: 45px;
-    }
-
-    .info-card h3 {
-        font-size: 15px;
-    }
-
-    .info-card p {
-        font-size: 13px;
-    }
-
-
-    /* CÓMO FUNCIONA */
-
-    .como-funciona {
-        margin-top: 50px;
-
-        padding: 35px 18px;
-
-        border-radius: 20px;
-    }
-
-    .como-funciona h2 {
-        font-size: 30px;
-    }
-
-    .como-funciona-intro {
-        font-size: 14px;
-
-        margin-bottom: 30px;
-    }
-
-    .pasos-grid {
-        grid-template-columns: 1fr;
-
-        gap: 28px;
-    }
-
-    .paso-info {
-        max-width: 260px;
-
-        margin: auto;
-    }
-
-
-    /* TARJETAS */
-
     .tarjeta {
-        padding: 35px 28px;
-
-        border-radius: 22px;
-    }
-
-    .tarjeta h2 {
-        font-size: 29px;
-    }
-
-    .subtitulo {
-        font-size: 18px;
-    }
-
-    .pregunta > p {
-        font-size: 20px;
-    }
-
-
-    /* PASO 4 */
-
-    .pregunta-banco {
-        font-size: 23px;
-    }
-
-    .banco-opciones .opcion {
-        min-height: 85px;
-
-        font-size: 24px;
-    }
-
-    .contenido-final-banco .mensaje-banco {
-        padding: 22px;
-
-        font-size: 18px;
-
-        line-height: 1.6;
-    }
-
-    .contenido-final-banco .paso-final {
-        padding: 22px;
-
-        font-size: 18px;
+        padding: 22px 18px;
     }
 }

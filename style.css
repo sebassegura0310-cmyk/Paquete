@@ -861,3 +861,145 @@ footer p {
         padding: 15px;
     }
 }
+
+
+/* SECCIONES INFORMATIVAS: respetan el diseño existente */
+
+#paso-0 > .seccion-info {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 28px auto 0;
+    padding: 22px;
+    border-radius: 22px;
+    background: #f8fbff;
+    box-shadow: 0 10px 25px rgba(0, 45, 100, 0.10);
+}
+
+#paso-0 > .seccion-info .encabezado-seccion {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#paso-0 > .seccion-info .encabezado-seccion h2 {
+    margin: 0 0 12px;
+    color: #102447;
+    font-size: 25px;
+    line-height: 1.2;
+}
+
+#paso-0 > .seccion-info .encabezado-seccion p {
+    margin: 0 auto;
+    max-width: 440px;
+    color: #42536b;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+#paso-0 .beneficios-grid,
+#paso-0 .pasos-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+}
+
+#paso-0 .info-card,
+#paso-0 .paso-card {
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 16px;
+    border: 1px solid #e4e9ef;
+    border-radius: 16px;
+    background: #f0f2f4;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+#paso-0 .info-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    background: #eee5d8;
+    color: #15559b;
+    font-size: 23px;
+}
+
+#paso-0 .info-card h3,
+#paso-0 .paso-card h3 {
+    margin: 0 0 8px;
+    color: #152744;
+    font-size: 15px;
+}
+
+#paso-0 .info-card p,
+#paso-0 .paso-card p {
+    margin: 0;
+    color: #37465b;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+#paso-0 .paso-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 12px;
+    border-radius: 13px;
+    background: #eee5d8;
+    color: #15559b;
+    font-size: 24px;
+}
+
+#paso-0 .paso-icon span {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: #f36b13;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+#paso-0 .paso-card {
+    text-align: center;
+}
+
+#paso-0 > .seccion-info > .boton {
+    display: flex;
+    width: 100%;
+    max-width: 360px;
+    box-sizing: border-box;
+    justify-content: center;
+    margin: 20px auto 0;
+}
+
+@media (min-width: 700px) {
+    #paso-0 .beneficios-grid,
+    #paso-0 .pasos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    #paso-0 > .seccion-info {
+        padding: 17px;
+        margin-top: 22px;
+    }
+
+    #paso-0 > .seccion-info .encabezado-seccion h2 {
+        font-size: 23px;
+    }
+}

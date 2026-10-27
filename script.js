@@ -7,25 +7,21 @@
    NAVEGACIÓN CON CARGA
 ========================= */
 
+
 let navegacionEnCurso = false;
 
 function irAPaso(numero) {
-
-    if (navegacionEnCurso) return;
-
     const destino = document.getElementById(`paso-${numero}`);
 
-    if (!destino) return;
+    if (!destino || navegacionEnCurso) return;
 
     navegacionEnCurso = true;
 
-    // Crear la pantalla de carga
     let carga = document.getElementById("pantalla-carga");
 
     if (!carga) {
         carga = document.createElement("div");
         carga.id = "pantalla-carga";
-        carga.className = "pantalla-carga";
 
         carga.innerHTML = `
             <div class="carga-contenido">
@@ -35,33 +31,36 @@ function irAPaso(numero) {
             </div>
         `;
 
+        Object.assign(carga.style, {
+            position: "fixed",
+            inset: "0",
+            zIndex: "999999",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "rgba(255,255,255,0.97)",
+            fontFamily: "Arial, sans-serif"
+        });
+
         document.body.appendChild(carga);
     }
 
-    carga.classList.add("visible");
+    carga.style.display = "flex";
 
-    // Mostrar la siguiente sección después de la animación
     setTimeout(() => {
-
-        document.querySelectorAll(".pantalla").forEach((pantalla) => {
+        document.querySelectorAll(".pantalla").forEach(pantalla => {
             pantalla.classList.remove("activa");
         });
 
         destino.classList.add("activa");
 
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
+        window.scrollTo(0, 0);
 
-        carga.classList.remove("visible");
-
-        setTimeout(() => {
-            navegacionEnCurso = false;
-        }, 350);
-
-    }, 1400);
+        carga.style.display = "none";
+        navegacionEnCurso = false;
+    }, 1600);
 }
+
 
 
 

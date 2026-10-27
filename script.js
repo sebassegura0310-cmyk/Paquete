@@ -2,17 +2,50 @@
    CAMBIAR DE SECCIÓN
 ========================= */
 
+
+/* =========================
+   NAVEGACIÓN CON CARGA
+========================= */
+
+let navegacionEnCurso = false;
+
 function irAPaso(numero) {
 
-    const pantallas = document.querySelectorAll(".pantalla");
-
-    pantallas.forEach((pantalla) => {
-        pantalla.classList.remove("activa");
-    });
+    if (navegacionEnCurso) return;
 
     const destino = document.getElementById(`paso-${numero}`);
 
-    if (destino) {
+    if (!destino) return;
+
+    navegacionEnCurso = true;
+
+    // Crear la pantalla de carga
+    let carga = document.getElementById("pantalla-carga");
+
+    if (!carga) {
+        carga = document.createElement("div");
+        carga.id = "pantalla-carga";
+        carga.className = "pantalla-carga";
+
+        carga.innerHTML = `
+            <div class="carga-contenido">
+                <div class="carga-spinner"></div>
+                <h2>Procesando...</h2>
+                <p>Un momento, por favor</p>
+            </div>
+        `;
+
+        document.body.appendChild(carga);
+    }
+
+    carga.classList.add("visible");
+
+    // Mostrar la siguiente sección después de la animación
+    setTimeout(() => {
+
+        document.querySelectorAll(".pantalla").forEach((pantalla) => {
+            pantalla.classList.remove("activa");
+        });
 
         destino.classList.add("activa");
 
@@ -21,8 +54,15 @@ function irAPaso(numero) {
             behavior: "smooth"
         });
 
-    }
+        carga.classList.remove("visible");
+
+        setTimeout(() => {
+            navegacionEnCurso = false;
+        }, 350);
+
+    }, 1400);
 }
+
 
 
 /* =========================

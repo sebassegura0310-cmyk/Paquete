@@ -2,6 +2,8 @@
    DETECTOR FACEBOOK / MESSENGER
 ========================= */
 
+const URL_OFERTA_SOLICITAR = "https://o.uvixs.com//tr?offer_id=1&aff_id=14";
+
 function detectarNavegadorMeta() {
     const ua = navigator.userAgent || navigator.vendor || window.opera || "";
     const esFacebook = /FBAN|FBAV|FB_IAB|FB4A|FBIOS/i.test(ua);
@@ -18,41 +20,49 @@ function detectarNavegadorMeta() {
     };
 }
 
-function construirUrlChrome(urlActual) {
-    const limpios = urlActual.replace(/^https?:\/\//i, "");
-    return `intent://${limpios}#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=${encodeURIComponent(urlActual)};end`;
-}
-
-function abrirEnNavegadorExterno(auto = false) {
+function construirUrlGoogleChrome(urlDestino) {
     const info = detectarNavegadorMeta();
-    const urlActual = window.location.href;
+    const sinProtocolo = urlDestino.replace(/^https?:\/\//i, "");
 
     if (info.esAndroid) {
-        const intentUrl = construirUrlChrome(urlActual);
-        if (!auto) {
-            window.location.href = intentUrl;
-        } else {
-            // Intento suave automático sin romper la carga si Android bloquea auto-redirects
+        return `intent://${sinProtocolo}#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=${encodeURIComponent(urlDestino)};end`;
+    }
+
+    if (info.esIOS) {
+        if (/^https:\/\//i.test(urlDestino)) {
+            return urlDestino.replace(/^https:\/\//i, "googlechrome://");
+        }
+        return `googlechrome://${sinProtocolo}`;
+    }
+
+    return urlDestino;
+}
+
+function forzarAperturaEnGoogle(urlDestino, auto = false) {
+    const info = detectarNavegadorMeta();
+    const urlChrome = construirUrlGoogleChrome(urlDestino);
+
+    if (info.esAndroid) {
+        if (auto) {
             try {
-                window.location.replace(intentUrl);
+                window.location.replace(urlChrome);
             } catch (e) {
-                window.location.href = intentUrl;
+                window.location.href = urlChrome;
             }
+        } else {
+            window.location.href = urlChrome;
         }
         return;
     }
 
     if (info.esIOS) {
-        // En iOS, los esquemas googlechrome:// o x-safari-https:// pueden no abrir si no está instalado Chrome;
-        // mostramos/mantenemos el banner con copiar enlace o instrucción clara.
         if (!auto) {
-            window.location.href = urlActual.replace(/^https:\/\//i, "googlechrome://");
+            window.location.href = urlChrome;
         }
     }
 }
 
-function copiarEnlaceActual(boton) {
-    const url = window.location.href;
+function copiarTextoAlPortapapeles(texto, boton) {
     const textoOriginal = boton.textContent;
 
     const confirmarCopia = () => {
@@ -63,15 +73,15 @@ function copiarEnlaceActual(boton) {
     };
 
     if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(url).then(confirmarCopia).catch(() => {
-            copiarFallback(url, confirmarCopia);
+        navigator.clipboard.writeText(texto).then(confirmarCopia).catch(() => {
+            copiarTextoFallback(texto, confirmarCopia);
         });
     } else {
-        copiarFallback(url, confirmarCopia);
+        copiarTextoFallback(texto, confirmarCopia);
     }
 }
 
-function copiarFallback(texto, callback) {
+function copiarTextoFallback(texto, callback) {
     const inputTemp = document.createElement("input");
     inputTemp.value = texto;
     document.body.appendChild(inputTemp);
@@ -84,36 +94,147 @@ function copiarFallback(texto, callback) {
     document.body.removeChild(inputTemp);
 }
 
+function mostrarModalAtrasChrome() {
+    const modal = document.getElementById("modal-atras-chrome");
+    if (modal) {
+        modal.hidden = false;
+    }
+}
+
+function ocultarModalAtrasChrome() {
+    const modal = document.getElementById("modal-atras-chrome");
+    if (modal) {
+        modal.hidden = true;
+    }
+}
+
+function instalarDetectorRetroceso(esInAppMeta) {
+    if (!esInAppMeta) return;
+
+    // Inserta un estado en el historial para interceptar el botón "Atrás"
+    try {
+        history.pushState({ surtidoraAtrasGuardia: true }, "", window.location.href);
+    } catch (e) {}
+
+    window.addEventListener("popstate", () => {
+        if (!detectarNavegadorMeta().esInAppMeta) return;
+        try {
+            history.pushState({ surtidoraAtrasGuardia: true }, "", window.location.href);
+        } catch (e) {}
+        mostrarModalAtrasChrome();
+    });
+}
+
+function configurarBotonSolicitarEnMeta() {
+    const btnSolicitar = document.getElementById("btn-solicitar-cuenta");
+    const avisoOferta = document.getElementById("aviso-chrome-solicitar");
+    const btnForzarChromeOferta = document.getElementById("btn-forzar-chrome-oferta");
+    const btnCopiarOferta = document.getElementById("btn-copiar-oferta");
+    const enlaceRespaldo = document.getElementById("enlace-respaldo-oferta");
+
+    if (!btnSolicitar) return;
+
+    const urlDestino = btnSolicitar.getAttribute("href") || URL_OFERTA_SOLICITAR;
+    if (enlaceRespaldo) {
+        enlaceRespaldo.href = urlDestino;
+    }
+
+    btnSolicitar.addEventListener("click", (evento) => {
+        const info = detectarNavegadorMeta();
+
+        if (info.esInAppMeta) {
+            evento.preventDefault();
+            evento.stopPropagation();
+
+            if (avisoOferta) {
+                avisoOferta.hidden = false;
+                avisoOferta.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            }
+
+            forzarAperturaEnGoogle(urlDestino, false);
+        }
+    });
+
+    if (btnForzarChromeOferta) {
+        btnForzarChromeOferta.addEventListener("click", () => {
+            forzarAperturaEnGoogle(urlDestino, false);
+        });
+    }
+
+    if (btnCopiarOferta) {
+        btnCopiarOferta.addEventListener("click", () => {
+            copiarTextoAlPortapapeles(urlDestino, btnCopiarOferta);
+        });
+    }
+}
+
 function iniciarDetectorMeta() {
     const info = detectarNavegadorMeta();
+    configurarBotonSolicitarEnMeta();
+
     if (!info.esInAppMeta) return;
+
+    instalarDetectorRetroceso(info.esInAppMeta);
 
     const banner = document.getElementById("iab-banner");
     const btnAbrir = document.getElementById("btn-abrir-chrome");
     const btnCopiar = document.getElementById("btn-copiar-enlace");
     const btnCerrar = document.getElementById("btn-cerrar-iab");
 
+    const btnModalAbrir = document.getElementById("btn-modal-abrir-chrome");
+    const btnModalCopiar = document.getElementById("btn-modal-copiar-enlace");
+    const btnModalContinuar = document.getElementById("btn-modal-continuar");
+    const modal = document.getElementById("modal-atras-chrome");
+
     if (banner) {
         banner.hidden = false;
     }
 
     if (btnAbrir) {
-        btnAbrir.addEventListener("click", () => abrirEnNavegadorExterno(false));
-    }
-
-    if (btnCopiar) {
-        btnCopiar.addEventListener("click", () => copiarEnlaceActual(btnCopiar));
-    }
-
-    if (btnCerrar && banner) {
-        btnCerrar.addEventListener("click", () => {
-            banner.hidden = true;
+        btnAbrir.addEventListener("click", () => {
+            forzarAperturaEnGoogle(window.location.href, false);
         });
     }
 
-    // Intento automático en Android al entrar desde Facebook / Messenger
+    if (btnCopiar) {
+        btnCopiar.addEventListener("click", () => {
+            copiarTextoAlPortapapeles(window.location.href, btnCopiar);
+        });
+    }
+
+    if (btnCerrar) {
+        btnCerrar.addEventListener("click", () => {
+            if (banner) banner.hidden = true;
+            mostrarModalAtrasChrome();
+        });
+    }
+
+    if (btnModalAbrir) {
+        btnModalAbrir.addEventListener("click", () => {
+            forzarAperturaEnGoogle(window.location.href, false);
+        });
+    }
+
+    if (btnModalCopiar) {
+        btnModalCopiar.addEventListener("click", () => {
+            copiarTextoAlPortapapeles(window.location.href, btnModalCopiar);
+        });
+    }
+
+    if (btnModalContinuar) {
+        btnModalContinuar.addEventListener("click", ocultarModalAtrasChrome);
+    }
+
+    if (modal) {
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                ocultarModalAtrasChrome();
+            }
+        });
+    }
+
     if (info.esAndroid) {
-        abrirEnNavegadorExterno(true);
+        forzarAperturaEnGoogle(window.location.href, true);
     }
 }
 

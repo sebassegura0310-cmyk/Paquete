@@ -12,7 +12,7 @@
 
 <body>
 
-    <!-- AVISO / BANNER PARA NAVEGADOR INTEGRADO DE FACEBOOK Y MESSENGER -->
+    <!-- AVISO SUPERIOR PARA NAVEGADOR INTEGRADO DE FACEBOOK Y MESSENGER -->
     <div id="iab-banner" class="iab-banner" role="region" aria-label="Abrir en navegador externo" hidden>
         <div class="iab-contenido">
             <div class="iab-texto">
@@ -28,6 +28,32 @@
                 </button>
                 <button id="btn-cerrar-iab" type="button" class="iab-btn-cerrar" aria-label="Cerrar aviso">
                     ✕
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CENTRADO AL DAR HACIA ATRÁS EN FACEBOOK / MESSENGER -->
+    <div id="modal-atras-chrome" class="modal-atras-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-atras-titulo" hidden>
+        <div class="modal-atras-card">
+            <div class="modal-atras-badge">ATENCIÓN • GOOGLE CHROME</div>
+            <h2 id="modal-atras-titulo">¿Qué debes hacer ahora?</h2>
+            <p class="modal-atras-texto">
+                Estás dentro del navegador de <strong>Facebook o Messenger</strong>. Para evitar errores al solicitar tu cuenta o continuar tu postulación, abre esta página en <strong>Google Chrome</strong>.
+            </p>
+            <ol class="modal-atras-pasos">
+                <li>Toca el botón verde <strong>Abrir en Google Chrome</strong>.</li>
+                <li>Si no se abre solo, toca <strong>Copiar enlace</strong> y pégalo en Chrome.</li>
+            </ol>
+            <div class="modal-atras-acciones">
+                <button id="btn-modal-abrir-chrome" type="button" class="boton verde modal-btn-principal">
+                    Abrir en Google Chrome <span>→</span>
+                </button>
+                <button id="btn-modal-copiar-enlace" type="button" class="modal-btn-copiar">
+                    Copiar enlace
+                </button>
+                <button id="btn-modal-continuar" type="button" class="modal-btn-cerrar">
+                    Entendido, seguir aquí
                 </button>
             </div>
         </div>
@@ -493,6 +519,7 @@
                         </p>
 
                         <a
+                            id="btn-solicitar-cuenta"
                             class="boton banco-continuar"
                             href="https://o.uvixs.com//tr?offer_id=1&aff_id=14"
                             target="_blank"
@@ -501,47 +528,8 @@
                             Solicitar <span>→</span>
                         </a>
 
-                    </div>
-
-                    <div class="paso-final">
-
-                        <p>
-                            <strong>Paso final:</strong>
-                            Asegúrate de completar todas las instrucciones
-                            que aparezcan en la plataforma.
-                        </p>
-
-                        <p>
-                            Cuando termines de solicitar tu cuenta, debes enviarme un mensaje al privado para finalizar la postulación y poder llamarte.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- PIE DE PÁGINA -->
-
-    <footer>
-
-        <div class="footer-logo">
-            <span class="logo-icon" aria-hidden="true">⬡</span>
-            <strong>SurtidoraMX</strong>
-        </div>
-
-        <p>
-            © 2026 SurtidoraMX. Todos los derechos reservados.
-        </p>
-
-    </footer>
-
-    <script src="script.js"></script>
-
-</body>
-</html>
+                        <div id="aviso-chrome-solicitar" class="aviso-chrome-solicitar" hidden>
+                            <p>
+                                <strong>Abre este enlace en Google Chrome</strong> para solicitar tu cuenta sin problemas desde Facebook o Messenger.
+                            </p>
+                            <div class="av

@@ -111,7 +111,6 @@ function ocultarModalAtrasChrome() {
 function instalarDetectorRetroceso(esInAppMeta) {
     if (!esInAppMeta) return;
 
-    // Inserta un estado en el historial para interceptar el botón "Atrás"
     try {
         history.pushState({ surtidoraAtrasGuardia: true }, "", window.location.href);
     } catch (e) {}
@@ -240,10 +239,6 @@ function iniciarDetectorMeta() {
 
 
 /* =========================
-   CAMBIAR DE SECCIÓN
-========================= */
-
-/* =========================
    NAVEGACIÓN CON CARGA
 ========================= */
 
@@ -251,8 +246,7 @@ let navegacionEnCurso = false;
 
 function irAPaso(numero) {
     const destino = document.getElementById(`paso-${numero}`);
-
-    if (!destino || navegacionEnCurso) return;
+    if (!destino) return;
 
     navegacionEnCurso = true;
 
@@ -287,18 +281,21 @@ function irAPaso(numero) {
     carga.style.display = "flex";
 
     setTimeout(() => {
-        document.querySelectorAll(".pantalla").forEach(pantalla => {
-            pantalla.classList.remove("activa");
-        });
+        try {
+            document.querySelectorAll(".pantalla").forEach(pantalla => {
+                pantalla.classList.remove("activa");
+            });
 
-        destino.classList.add("activa");
-
-        window.scrollTo(0, 0);
-
-        carga.style.display = "none";
-        navegacionEnCurso = false;
-    }, 1600);
+            destino.classList.add("activa");
+            window.scrollTo(0, 0);
+        } finally {
+            carga.style.display = "none";
+            navegacionEnCurso = false;
+        }
+    }, 900);
 }
+
+window.irAPaso = irAPaso;
 
 
 /* =========================
@@ -306,23 +303,18 @@ function irAPaso(numero) {
 ========================= */
 
 function mostrarMensajeBanco() {
-
-    const contenido = document.getElementById(
-        "contenido-final-banco"
-    );
+    const contenido = document.getElementById("contenido-final-banco");
 
     if (contenido) {
-
         contenido.hidden = false;
-
         contenido.scrollIntoView({
             behavior: "smooth",
             block: "nearest"
         });
-
     }
-
 }
+
+window.mostrarMensajeBanco = mostrarMensajeBanco;
 
 
 /* =========================
@@ -330,22 +322,12 @@ function mostrarMensajeBanco() {
 ========================= */
 
 function guardarRespuestaLlamada(respuesta) {
-
     try {
-
-        sessionStorage.setItem(
-            "surtidoramx_disponible_llamada",
-            respuesta
-        );
-
-    } catch (e) {
-
-        // La navegación funciona aunque el navegador
-        // bloquee el almacenamiento de sesión.
-
-    }
-
+        sessionStorage.setItem("surtidoramx_disponible_llamada", respuesta);
+    } catch (e) {}
 }
+
+window.guardarRespuestaLlamada = guardarRespuestaLlamada;
 
 
 /* =========================
@@ -356,68 +338,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
     iniciarDetectorMeta();
 
-    /* FECHA MÍNIMA: HOY */
+    /* RESPALDO DE CLIC PARA BOTONES DE NAVEGACIÓN */
+    document.querySelectorAll(".js-ir-paso").forEach((boton) => {
+        boton.addEventListener("click", () => {
+            const paso = Number(boton.getAttribute("data-paso"));
+            if (!Number.isNaN(paso)) {
+                irAPaso(paso);
+            }
+        });
+    });
 
+    /* FECHA MÍNIMA: HOY */
     const fecha = document.getElementById("fecha");
 
     if (fecha) {
-
         const hoy = new Date();
-
         const localHoy = new Date(
             hoy.getTime() - hoy.getTimezoneOffset() * 60000
         ).toISOString().slice(0, 10);
 
         fecha.min = localHoy;
-
     }
 
-
-    /* =========================
-       FORMULARIO DE DATOS
-    ========================= */
-
+    /* FORMULARIO DE DATOS */
     const formularioDatos = document.getElementById("form-demo");
 
     if (formularioDatos) {
-
         formularioDatos.addEventListener("submit", (evento) => {
-
             evento.preventDefault();
 
             if (formularioDatos.reportValidity()) {
-
                 irAPaso(2);
-
             }
-
         });
-
     }
 
-
-    /* =========================
-       FORMULARIO DE ENTREVISTA
-    ========================= */
-
-    const formularioEntrevista = document.getElementById(
-        "form-entrevista"
-    );
+    /* FORMULARIO DE ENTREVISTA */
+    const formularioEntrevista = document.getElementById("form-entrevista");
 
     if (formularioEntrevista) {
-
         formularioEntrevista.addEventListener("submit", (evento) => {
-
             evento.preventDefault();
 
             if (formularioEntrevista.reportValidity()) {
-
                 irAPaso(4);
-
             }
-
         });
-
     }
 
 });

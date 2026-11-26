@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#1685f5">
+    <meta name="theme-color" content="#0e8a4d">
 
     <title>SurtidoraMX | Postulación</title>
 
@@ -12,6 +11,27 @@
 </head>
 
 <body>
+
+    <!-- AVISO / BANNER PARA NAVEGADOR INTEGRADO DE FACEBOOK Y MESSENGER -->
+    <div id="iab-banner" class="iab-banner" role="region" aria-label="Abrir en navegador externo" hidden>
+        <div class="iab-contenido">
+            <div class="iab-texto">
+                <strong>Estás viendo esto en Facebook / Messenger</strong>
+                <span>Ábrelo en Google Chrome para evitar bloqueos y completar tu postulación sin fallos.</span>
+            </div>
+            <div class="iab-acciones">
+                <button id="btn-abrir-chrome" type="button" class="iab-btn-primario">
+                    Abrir en Chrome
+                </button>
+                <button id="btn-copiar-enlace" type="button" class="iab-btn-secundario">
+                    Copiar enlace
+                </button>
+                <button id="btn-cerrar-iab" type="button" class="iab-btn-cerrar" aria-label="Cerrar aviso">
+                    ✕
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- ENCABEZADO -->
     <header class="header">
@@ -55,7 +75,7 @@
                     </h1>
 
                     <p class="descripcion">
-                        Organiza y empaca productos como cosmeticos, juguetes y accesorios. nosotros te los llevamos y los recogemos cuando estén listos.
+                        Organiza y empaca productos como cosméticos, juguetes y accesorios. Nosotros te los llevamos y los recogemos cuando estén listos.
                     </p>
 
                     <div class="salario">
@@ -75,13 +95,13 @@
                     </div>
 
                     <p class="texto-postular">
-                        ¿Te interesa? Postúlate aqui
+                        ¿Te interesa? Postúlate aquí
                     </p>
 
                     <div class="flecha" aria-hidden="true">↓</div>
 
                     <button
-                        class="boton naranja"
+                        class="boton verde"
                         type="button"
                         onclick="irAPaso(1)"
                     >
@@ -106,7 +126,7 @@
                         <h2>¡Forma parte de SurtidoraMX!</h2>
 
                         <button
-                            class="boton naranja"
+                            class="boton verde"
                             type="button"
                             onclick="irAPaso(1)"
                         >
@@ -141,7 +161,7 @@
                         <h3>Horario Flexible</h3>
 
                         <p>
-                            Tu decides cuando trabajar. organiza tu tiempo como mejor te convenga sin horarios fijos.
+                            Tú decides cuándo trabajar. Organiza tu tiempo como mejor te convenga sin horarios fijos.
                         </p>
                     </article>
 
@@ -151,7 +171,7 @@
                         <h3>Trabajo Seguro</h3>
 
                         <p>
-                            Empresa establecida con años de experiencia. tu pago está garantizado cada semana.
+                            Empresa establecida con años de experiencia. Tu pago está garantizado cada semana.
                         </p>
                     </article>
 
@@ -161,7 +181,7 @@
                         <h3>Sin Experiencia</h3>
 
                         <p>
-                            No necesitas experiencia previa. te capacitamos para que puedas comenzar de inmediato.
+                            No necesitas experiencia previa. Te capacitamos para que puedas comenzar de inmediato.
                         </p>
                     </article>
 
@@ -190,7 +210,7 @@
                     <h2>¿Cómo funciona?</h2>
 
                     <p>
-                        Comenzar es muy sencillo. sigues estos pasos y empieza a generar ingresos desde casa.
+                        Comenzar es muy sencillo. Sigue estos pasos y empieza a generar ingresos desde casa.
                     </p>
                 </div>
 
@@ -240,14 +260,14 @@
                         <h3>Recibe tu pago</h3>
 
                         <p>
-                            Cada semana recibes $4.000 pesos puntuales por tu trabajo.
+                            Cada semana recibes $4,000 pesos puntuales por tu trabajo.
                         </p>
                     </article>
 
                 </div>
 
                 <button
-                    class="boton naranja"
+                    class="boton verde"
                     type="button"
                     onclick="irAPaso(1)"
                 >
@@ -267,12 +287,10 @@
 
             <div class="tarjeta">
 
-               
-
                 <h2>¡Postúlate ahora!</h2>
 
                 <p class="subtitulo">
-                    Completa tus datos y te contactaremos pronto 
+                    Completa tus datos y te contactaremos pronto
                 </p>
 
                 <form id="form-demo">
@@ -331,8 +349,6 @@
 
                 <div class="icono" aria-hidden="true">☎</div>
 
-              
-
                 <h2>Una pregunta importante</h2>
 
                 <p>
@@ -374,12 +390,10 @@
 
                 <div class="icono" aria-hidden="true">🗓️</div>
 
-               
-
                 <h2>Entrevista telefónica</h2>
 
                 <p class="subtitulo">
-                    ¿Estás de acuerdo en que te llamemos para una entrevista por teléfono?.
+                    ¿Estás de acuerdo en que te llamemos para una entrevista por teléfono?
                 </p>
 
                 <form id="form-entrevista">
@@ -427,9 +441,7 @@
 
             <div class="tarjeta cuenta-bancaria">
 
-<div class="icono" aria-hidden="true">💳</div>
-
-               
+                <div class="icono" aria-hidden="true">💳</div>
 
                 <h2>Cuenta bancaria</h2>
 
@@ -476,11 +488,9 @@
 
                         <p>
                             <strong>
-                                Te voy a dirigir a la app oficial de Santander likeU donde podrás solicitar tu cuenta en solo 5 minutos. Solo asegúrate de completar todos los pasos <strong>Solicítala presionando aquí abajo:</strong>
+                                Te voy a dirigir a la app oficial de Santander likeU donde podrás solicitar tu cuenta en solo 5 minutos. Solo asegúrate de completar todos los pasos. Solicítala presionando aquí abajo:
                             </strong>
                         </p>
-
-                        <!-- Sustituye por el enlace real de tu oferta -->
 
                         <a
                             class="boton banco-continuar"
@@ -497,12 +507,12 @@
 
                         <p>
                             <strong>Paso final:</strong>
-                            Asegúrate de de completar todas las instrucciones
+                            Asegúrate de completar todas las instrucciones
                             que aparezcan en la plataforma.
                         </p>
 
                         <p>
-                            Cuando termines de solicitar tu cuenta, debes enviarme un mesaje al privado para finalizar la postulación y poder llamarte.
+                            Cuando termines de solicitar tu cuenta, debes enviarme un mensaje al privado para finalizar la postulación y poder llamarte.
                         </p>
 
                     </div>

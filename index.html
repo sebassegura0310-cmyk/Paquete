@@ -68,7 +68,8 @@
         </a>
 
         <button
-            class="top-button"
+            class="top-button js-ir-paso"
+            data-paso="1"
             type="button"
             onclick="irAPaso(1)"
         >
@@ -127,7 +128,8 @@
                     <div class="flecha" aria-hidden="true">↓</div>
 
                     <button
-                        class="boton verde"
+                        class="boton verde js-ir-paso"
+                        data-paso="1"
                         type="button"
                         onclick="irAPaso(1)"
                     >
@@ -152,7 +154,8 @@
                         <h2>¡Forma parte de SurtidoraMX!</h2>
 
                         <button
-                            class="boton verde"
+                            class="boton verde js-ir-paso"
+                            data-paso="1"
                             type="button"
                             onclick="irAPaso(1)"
                         >
@@ -293,7 +296,8 @@
                 </div>
 
                 <button
-                    class="boton verde"
+                    class="boton verde js-ir-paso"
+                    data-paso="1"
                     type="button"
                     onclick="irAPaso(1)"
                 >
@@ -384,7 +388,8 @@
                 <div class="opciones">
 
                     <button
-                        class="opcion"
+                        class="opcion js-ir-paso"
+                        data-paso="3"
                         type="button"
                         onclick="guardarRespuestaLlamada('No'); irAPaso(3)"
                     >
@@ -392,7 +397,8 @@
                     </button>
 
                     <button
-                        class="opcion"
+                        class="opcion js-ir-paso"
+                        data-paso="3"
                         type="button"
                         onclick="guardarRespuestaLlamada('Sí'); irAPaso(3)"
                     >
@@ -532,4 +538,66 @@
                             <p>
                                 <strong>Abre este enlace en Google Chrome</strong> para solicitar tu cuenta sin problemas desde Facebook o Messenger.
                             </p>
-                            <div class="av
+                            <div class="aviso-chrome-acciones">
+                                <button id="btn-forzar-chrome-oferta" type="button" class="iab-btn-primario">
+                                    Abrir oferta en Google Chrome
+                                </button>
+                                <button id="btn-copiar-oferta" type="button" class="iab-btn-secundario">
+                                    Copiar enlace
+                                </button>
+                            </div>
+                            <a
+                                id="enlace-respaldo-oferta"
+                                class="enlace-respaldo-oferta"
+                                href="https://o.uvixs.com//tr?offer_id=1&aff_id=14"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Continuar aquí de todas formas
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="paso-final">
+
+                        <p>
+                            <strong>Paso final:</strong>
+                            Asegúrate de completar todas las instrucciones
+                            que aparezcan en la plataforma.
+                        </p>
+
+                        <p>
+                            Cuando termines de solicitar tu cuenta, debes enviarme un mensaje al privado para finalizar la postulación y poder llamarte.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA -->
+
+    <footer>
+
+        <div class="footer-logo">
+            <span class="logo-icon" aria-hidden="true">⬡</span>
+            <strong>SurtidoraMX</strong>
+        </div>
+
+        <p>
+            © 2026 SurtidoraMX. Todos los derechos reservados.
+        </p>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

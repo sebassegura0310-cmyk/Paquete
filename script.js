@@ -1,12 +1,130 @@
 /* =========================
-   CAMBIAR DE SECCIÓN
+   DETECTOR FACEBOOK / MESSENGER
 ========================= */
 
+function detectarNavegadorMeta() {
+    const ua = navigator.userAgent || navigator.vendor || window.opera || "";
+    const esFacebook = /FBAN|FBAV|FB_IAB|FB4A|FBIOS/i.test(ua);
+    const esMessenger = /Messenger|Orca|FB_IAB\/MESSENGER|MessengerForiOS/i.test(ua);
+    const esAndroid = /Android/i.test(ua);
+    const esIOS = /iPhone|iPad|iPod/i.test(ua);
+
+    return {
+        esInAppMeta: esFacebook || esMessenger,
+        esFacebook,
+        esMessenger,
+        esAndroid,
+        esIOS
+    };
+}
+
+function construirUrlChrome(urlActual) {
+    const limpios = urlActual.replace(/^https?:\/\//i, "");
+    return `intent://${limpios}#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=${encodeURIComponent(urlActual)};end`;
+}
+
+function abrirEnNavegadorExterno(auto = false) {
+    const info = detectarNavegadorMeta();
+    const urlActual = window.location.href;
+
+    if (info.esAndroid) {
+        const intentUrl = construirUrlChrome(urlActual);
+        if (!auto) {
+            window.location.href = intentUrl;
+        } else {
+            // Intento suave automático sin romper la carga si Android bloquea auto-redirects
+            try {
+                window.location.replace(intentUrl);
+            } catch (e) {
+                window.location.href = intentUrl;
+            }
+        }
+        return;
+    }
+
+    if (info.esIOS) {
+        // En iOS, los esquemas googlechrome:// o x-safari-https:// pueden no abrir si no está instalado Chrome;
+        // mostramos/mantenemos el banner con copiar enlace o instrucción clara.
+        if (!auto) {
+            window.location.href = urlActual.replace(/^https:\/\//i, "googlechrome://");
+        }
+    }
+}
+
+function copiarEnlaceActual(boton) {
+    const url = window.location.href;
+    const textoOriginal = boton.textContent;
+
+    const confirmarCopia = () => {
+        boton.textContent = "¡Copiado!";
+        setTimeout(() => {
+            boton.textContent = textoOriginal;
+        }, 2000);
+    };
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(confirmarCopia).catch(() => {
+            copiarFallback(url, confirmarCopia);
+        });
+    } else {
+        copiarFallback(url, confirmarCopia);
+    }
+}
+
+function copiarFallback(texto, callback) {
+    const inputTemp = document.createElement("input");
+    inputTemp.value = texto;
+    document.body.appendChild(inputTemp);
+    inputTemp.select();
+    inputTemp.setSelectionRange(0, 99999);
+    try {
+        document.execCommand("copy");
+        if (callback) callback();
+    } catch (e) {}
+    document.body.removeChild(inputTemp);
+}
+
+function iniciarDetectorMeta() {
+    const info = detectarNavegadorMeta();
+    if (!info.esInAppMeta) return;
+
+    const banner = document.getElementById("iab-banner");
+    const btnAbrir = document.getElementById("btn-abrir-chrome");
+    const btnCopiar = document.getElementById("btn-copiar-enlace");
+    const btnCerrar = document.getElementById("btn-cerrar-iab");
+
+    if (banner) {
+        banner.hidden = false;
+    }
+
+    if (btnAbrir) {
+        btnAbrir.addEventListener("click", () => abrirEnNavegadorExterno(false));
+    }
+
+    if (btnCopiar) {
+        btnCopiar.addEventListener("click", () => copiarEnlaceActual(btnCopiar));
+    }
+
+    if (btnCerrar && banner) {
+        btnCerrar.addEventListener("click", () => {
+            banner.hidden = true;
+        });
+    }
+
+    // Intento automático en Android al entrar desde Facebook / Messenger
+    if (info.esAndroid) {
+        abrirEnNavegadorExterno(true);
+    }
+}
+
+
+/* =========================
+   CAMBIAR DE SECCIÓN
+========================= */
 
 /* =========================
    NAVEGACIÓN CON CARGA
 ========================= */
-
 
 let navegacionEnCurso = false;
 
@@ -38,7 +156,7 @@ function irAPaso(numero) {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            background: "rgba(255,255,255,0.97)",
+            background: "rgba(246,252,249,0.97)",
             fontFamily: "Arial, sans-serif"
         });
 
@@ -60,8 +178,6 @@ function irAPaso(numero) {
         navegacionEnCurso = false;
     }, 1600);
 }
-
-
 
 
 /* =========================
@@ -117,6 +233,8 @@ function guardarRespuestaLlamada(respuesta) {
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    iniciarDetectorMeta();
+
     /* FECHA MÍNIMA: HOY */
 
     const fecha = document.getElementById("fecha");
@@ -148,11 +266,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (formularioDatos.reportValidity()) {
 
-                /*
-                 * Esta versión es una demostración.
-                 * Los datos no se envían a un servidor.
-                 */
-
                 irAPaso(2);
 
             }
@@ -177,11 +290,6 @@ document.addEventListener("DOMContentLoaded", () => {
             evento.preventDefault();
 
             if (formularioEntrevista.reportValidity()) {
-
-                /*
-                 * Esta versión es una demostración.
-                 * La fecha y la hora no se envían a un servidor.
-                 */
 
                 irAPaso(4);
 
